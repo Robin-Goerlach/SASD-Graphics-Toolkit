@@ -1,19 +1,19 @@
 # SASD Graphics Toolkit
 
-> Modernes 2D-Grafik-, Visualisierungs- und Zeichenfundament für SASD-Projekte.
+> Modernes **C++-Grafik-, Visualisierungs- und Zeichenfundament** für SASD-Projekte.
 
 ![SASD Graphics Toolkit Preview](assets/screenshots/sasd-graphics-toolkit-preview.svg)
 
 ## Zielbild
 
-**SASD Graphics Toolkit** soll eine kleine, saubere und erweiterbare Grafikbibliothek werden, die als Unterbau für mehrere SASD-Projekte dienen kann:
+**SASD Graphics Toolkit** soll eine kleine, saubere und erweiterbare C++-Bibliothek werden, die als Unterbau für mehrere SASD-Projekte dienen kann:
 
 - **SASD GameWorks Lab**: Brettspiel- und Kartenvisualisierung, Spielanalyse, Suchbäume, Bewertungsdiagramme.
 - **SASD Numerics / Math Toolkit**: Funktionsplots, Diagramme, Koordinatensysteme, numerische Visualisierung.
-- **SASD UI Platform / UI Toolkit**: wiederverwendbare Zeichenmodelle, Themes, Raster, einfache Controls und später Rendering-Backends.
+- **SASD UI Toolkit / UI Platform**: wiederverwendbare Zeichenmodelle, Themes, Raster, einfache Controls und später Rendering-Backends.
 - **Lehr- und Forschungsprojekte**: verständliche Beispiele für Grafik, Geometrie, Transformationen und algorithmische Visualisierung.
 
-Das Projekt soll **kein schwergewichtiges Game-Engine-Framework** und **kein Ersatz für Qt, Avalonia oder WPF** werden. Es soll ein klar abgegrenzter, testbarer Grafik-Unterbau sein, der einfache Zeichnungen, Diagramme, Boards und Lernvisualisierungen zuverlässig möglich macht.
+Das Projekt soll **kein schwergewichtiges Game-Engine-Framework** und **kein Ersatz für Qt, wxWidgets, GTK oder Skia** werden. Es soll ein klar abgegrenzter, testbarer Grafik-Unterbau sein, der einfache Zeichnungen, Diagramme, Boards und Lernvisualisierungen zuverlässig möglich macht.
 
 ## Kernidee
 
@@ -28,12 +28,12 @@ Anwendung             -> Warum wird es gezeichnet?
 
 Dadurch kann dieselbe fachliche Grafik später auf verschiedene Ziele gerendert werden, zum Beispiel:
 
-- WinForms / GDI+
-- WPF / Win2D
-- SkiaSharp
 - SVG-Export
 - Bitmap-Export
-- später optional: Terminal/Sixel, HTML Canvas oder native Backends
+- Terminal/Sixel oder textnahe Debug-Ausgabe
+- Win32/GDI+ oder Direct2D
+- Skia/Cairo-Adapter
+- später optional: HTML Canvas oder native UI-Backends
 
 ## Geplante Feature-Gruppen
 
@@ -57,30 +57,34 @@ Das Toolkit soll **nicht** direkt Spiellogik, Schachregeln, Go-Moku-KI oder nume
 SASD.GameWorksLab        -> Spielregeln, KI, Spielzustände
 SASD.Numerics.Core       -> Mathematik, Statistik, numerische Verfahren
 SASD.Graphics.Toolkit    -> Darstellung, Koordinaten, Zeichenmodelle
-SASD.UI.Platform         -> konkrete Desktop-Oberflächen und Bedienkonzepte
+SASD.UI.Toolkit          -> konkrete Bedienkonzepte und UI-Komponenten
 ```
 
 ## Vorgeschlagene Architektur
 
 ```text
+include/
+└── sasd/graphics/
+    ├── geometry/
+    ├── styling/
+    ├── scene/
+    ├── coordinates/
+    ├── export/
+    ├── boards/
+    └── charts/
+
 src/
-├── Sasd.Graphics.Core
-│   ├── Geometry
-│   ├── Styling
-│   ├── SceneGraph
-│   ├── Coordinates
-│   └── Export
-├── Sasd.Graphics.Rendering.Svg
-├── Sasd.Graphics.Rendering.WinForms
-├── Sasd.Graphics.Charts
-├── Sasd.Graphics.Boards
-└── Sasd.Graphics.DemoApp
+├── core/
+├── rendering_svg/
+├── boards/
+├── charts/
+└── demo/
 
 tests/
-├── Sasd.Graphics.Core.Tests
-├── Sasd.Graphics.Rendering.Svg.Tests
-├── Sasd.Graphics.Charts.Tests
-└── Sasd.Graphics.Boards.Tests
+├── core/
+├── rendering_svg/
+├── boards/
+└── charts/
 ```
 
 ## Erste sinnvolle Demo
@@ -106,7 +110,7 @@ Diese Demo ist klein genug für einen schnellen Start, aber fachlich nützlich f
 | **M3 – SVG Renderer** | reproduzierbarer Export ohne native UI-Abhängigkeit |
 | **M4 – Board Renderer** | Raster, Brettspiele, Koordinaten, Hit-Testing |
 | **M5 – Chart Basics** | einfache Kurven-, Punkt- und Achsendiagramme |
-| **M6 – WinForms Demo App** | interaktive Demo mit Board, Chart und Export |
+| **M6 – Demo App** | interaktive oder dateibasierte Demo mit Board, Chart und Export |
 
 ## Dokumentation
 
@@ -121,11 +125,21 @@ Diese Demo ist klein genug für einen schnellen Start, aber fachlich nützlich f
 
 ## Entwicklungsprinzipien
 
-1. **Klein anfangen, sauber trennen.** Erst Core + SVG, dann UI-Backends.
-2. **Keine Framework-Vermischung.** Core bleibt frei von WinForms/WPF/Skia-Abhängigkeiten.
+1. **Klein anfangen, sauber trennen.** Erst Core + SVG, dann native Backends.
+2. **Keine Framework-Vermischung.** Core bleibt frei von Qt/GTK/Win32/Skia-Abhängigkeiten.
 3. **Testbare Geometrie.** Berechnungen müssen ohne UI getestet werden können.
 4. **Dokumentation parallel zum Code.** Jede größere Entscheidung bekommt eine kurze Begründung.
 5. **Beispiele vor Abstraktion.** Abstraktionen entstehen aus konkreten Demos, nicht umgekehrt.
+
+## Geplanter Build-Stil
+
+Das Repository ist als modernes C++/CMake-Projekt vorgesehen.
+
+```bash
+cmake -S . -B build
+cmake --build build
+ctest --test-dir build
+```
 
 ## Status
 
@@ -134,7 +148,7 @@ Aktueller Stand: **Repository-Baseline / Konzeptphase**.
 Noch nicht vorhanden:
 
 - produktiver Code
-- NuGet-Pakete
+- Release-Artefakte
 - CI/CD
 - Lizenzentscheidung
 - stabiler API-Vertrag

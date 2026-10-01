@@ -4,47 +4,47 @@ Arbeitsregeln für Codex/AI-gestützte Entwicklung im Repository **SASD Graphics
 
 ## Projektzweck
 
-Dieses Repository entwickelt einen modernen 2D-Grafik-Unterbau für SASD-Projekte. Der Fokus liegt auf sauber getrennten Kernmodellen, Geometrie, Koordinaten, Rendering und exportierbaren Visualisierungen.
+Dieses Repository entwickelt einen modernen **C++-2D-Grafik-Unterbau** für SASD-Projekte. Der Fokus liegt auf sauber getrennten Kernmodellen, Geometrie, Koordinaten, Rendering und exportierbaren Visualisierungen.
 
 ## Wichtige Abgrenzung
 
 - Keine Spielregeln in dieses Repository aufnehmen.
 - Keine numerischen Fachalgorithmen in dieses Repository aufnehmen.
-- Keine UI-Framework-Typen in den Core übernehmen.
+- Keine UI- oder Rendering-Framework-Typen in den Core übernehmen.
 - Keine unnötig große Architektur bauen, bevor eine Demo sie benötigt.
 
 ## Zielarchitektur
 
 ```text
-Sasd.Graphics.Core
+sasd_graphics_core
     keine UI-Abhängigkeit
 
-Sasd.Graphics.Rendering.Svg
+sasd_graphics_rendering_svg
     erster Renderer und primäres Test-/Dokumentationsziel
 
-Sasd.Graphics.Boards
+sasd_graphics_boards
     Grid-, Board- und Hit-Testing-Hilfen
 
-Sasd.Graphics.Charts
+sasd_graphics_charts
     einfache Visualisierung von Datenserien
 
-Sasd.Graphics.DemoApp
-    spätere interaktive Demo, zunächst nicht zwingend
+sasd_graphics_demo
+    spätere interaktive oder dateibasierte Demo
 ```
 
 ## Entwicklungsstil
 
 - Code klar und nachvollziehbar kommentieren.
-- Öffentliche Typen mit XML-Dokumentation versehen.
-- Kleine, testbare Klassen bevorzugen.
+- Öffentliche Typen und Funktionen dokumentieren.
+- Kleine, testbare Klassen und freie Funktionen bevorzugen.
 - Keine Magie in Rendering- oder Transformationscode verstecken.
 - Beispiele und Tests mitliefern, sobald neue Konzepte eingeführt werden.
 - Bestehende Dokumentation aktualisieren, wenn Architekturentscheidungen geändert werden.
 
 ## Empfohlene Reihenfolge
 
-1. Solution und Projektstruktur anlegen.
-2. `Sasd.Graphics.Core` erstellen.
+1. CMake-Projektstruktur anlegen.
+2. `sasd_graphics_core` erstellen.
 3. Geometrietypen implementieren.
 4. Tests für Geometrietypen ergänzen.
 5. Scene Model minimal einführen.
@@ -53,14 +53,12 @@ Sasd.Graphics.DemoApp
 
 ## Build und Test
 
-Aktuell existiert noch kein produktiver Code. Sobald die Solution angelegt ist, soll diese Sektion konkretisiert werden.
-
-Geplante Befehle:
+Aktuell existiert noch kein produktiver Code. Sobald die CMake-Struktur angelegt ist, sollen diese Befehle funktionieren:
 
 ```bash
-dotnet restore
-dotnet build
-dotnet test
+cmake -S . -B build
+cmake --build build
+ctest --test-dir build
 ```
 
 ## Commit- und PR-Regeln
@@ -75,13 +73,21 @@ dotnet test
 Vorgeschlagene Namespaces:
 
 ```text
-Sasd.Graphics.Core
-Sasd.Graphics.Core.Geometry
-Sasd.Graphics.Core.Styling
-Sasd.Graphics.Core.SceneGraph
-Sasd.Graphics.Rendering.Svg
-Sasd.Graphics.Boards
-Sasd.Graphics.Charts
+sasd::graphics
+sasd::graphics::geometry
+sasd::graphics::styling
+sasd::graphics::scene
+sasd::graphics::rendering
+sasd::graphics::boards
+sasd::graphics::charts
+```
+
+Vorgeschlagene Include-Pfade:
+
+```text
+#include <sasd/graphics/geometry/point.hpp>
+#include <sasd/graphics/scene/scene.hpp>
+#include <sasd/graphics/rendering/svg_renderer.hpp>
 ```
 
 ## Qualitätskriterien

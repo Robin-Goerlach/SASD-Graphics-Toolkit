@@ -1,23 +1,20 @@
 # Feature Catalog
 
-Dieses Dokument sammelt die geplanten Funktionsbereiche des **SASD Graphics Toolkit**. Die Liste ist bewusst nach Priorität und Abhängigkeiten geordnet.
+This document collects the planned feature areas of **SASD Graphics Toolkit**. The list is ordered by dependency and practical implementation priority.
 
-## P0 – Repository- und Dokumentationsbasis
+## P0 – Repository and Documentation Baseline
 
-Diese Funktionen sind Voraussetzung für strukturierte Entwicklung.
-
-- README mit Zielbild und Screenshot.
-- Dokumentationsverzeichnis.
+- English README as the default entry point.
+- German companion README.
+- Documentation directory.
+- Architecture overview.
 - Roadmap.
-- Architekturüberblick.
-- AGENTS.md für KI-gestützte Entwicklung.
-- klare Entscheidung, dass Core und Renderer getrennt werden.
+- AGENTS.md for AI-assisted development.
+- MIT license information.
 
 ## P1 – Core Geometry
 
-Grundlage für alle weiteren Module.
-
-### Typen
+Foundation for all later modules:
 
 - `point2d`
 - `size2d`
@@ -28,130 +25,107 @@ Grundlage für alle weiteren Module.
 - `polygon2d`
 - `bounds2d`
 
-### Operationen
+Basic operations:
 
-- Distanzberechnung.
-- Bounds-Berechnung.
-- Schnitt- und Enthält-Prüfungen, zunächst nur einfache Fälle.
-- Normalisierung von Rechtecken.
-- Mapping von Weltkoordinaten auf Ausgabe-Koordinaten.
+- distance calculation,
+- bounds calculation,
+- simple intersection and containment checks,
+- rectangle normalization,
+- mapping between world and output coordinates.
 
 ## P2 – Styling
 
-Stile beschreiben die Darstellung, nicht die Fachlogik.
+Styles describe presentation, not domain logic:
 
-- Farben.
-- Linienbreite.
-- Linienart.
-- Füllung.
-- Textstil.
-- Symbolstil.
-- Themes.
+- colors,
+- stroke width,
+- stroke style,
+- fill style,
+- text style,
+- symbol style,
+- themes.
 
-Wichtig: Der Core sollte eigene einfache Stilmodelle besitzen und nicht direkt Win32-, Qt-, GTK-, Skia- oder Cairo-Typen verwenden.
+The core should use its own simple style model and should not expose Win32, Qt, GTK, Skia, or Cairo types directly.
 
 ## P3 – Scene Model
 
-Das Scene Model beschreibt, was gezeichnet werden soll.
+The scene model describes what should be drawn:
 
-### Primitive
-
-- Linie.
-- Rechteck.
-- Kreis/Ellipse.
-- Polygon.
-- Pfad.
-- Text.
-- Bildreferenz, später.
-
-### Struktur
-
-- Layer.
-- Gruppen.
-- Z-Order.
-- optionale IDs für Hit-Testing und Debugging.
+- line,
+- rectangle,
+- circle/ellipse,
+- polygon,
+- path,
+- text,
+- layer,
+- group,
+- z-order,
+- optional IDs for hit testing and debugging.
 
 ## P4 – SVG Renderer
 
-SVG ist das erste empfohlene Ausgabeformat.
+SVG is the recommended first output format because it is text-based, easy to test, useful in Markdown, and independent of native UI frameworks.
 
-### Gründe
+Minimum scope:
 
-- textbasiert.
-- gut testbar.
-- gut in Markdown/README nutzbar.
-- kein UI-Framework nötig.
-- ideal für Dokumentation und Demos.
+- lines,
+- rectangles,
+- circles,
+- simple paths,
+- text,
+- styles,
+- viewBox,
+- export to `.svg`.
 
-### Mindestumfang
+## P5 – Boards and Grids
 
-- Linien.
-- Rechtecke.
-- Kreise.
-- einfache Pfade.
-- Text.
-- Styles.
-- ViewBox.
-- Export als `.svg`.
+Planned board/grid functions:
 
-## P5 – Boards & Grids
-
-Für GameWorks Lab und Lernbeispiele sind Brett- und Rasterdarstellungen besonders wichtig.
-
-### Geplante Boards
-
-- Go-Moku-Board 19 × 19.
-- Schachbrett 8 × 8.
-- generisches Zellraster.
-- Karten-Layoutbereiche für spätere Bridge-/Kartenspiel-Demos.
-
-### Funktionen
-
-- Raster zeichnen.
-- Zellkoordinaten beschriften.
-- Objekte in Zellen platzieren.
-- letzter Zug / selektiertes Feld hervorheben.
-- Hit-Testing: Pixelposition → Brettkoordinate.
-- Brettkoordinate → Zentrumspunkt.
+- Go-Moku board, 19 × 19,
+- chess board, 8 × 8,
+- generic cell grid,
+- card layout areas for later Bridge/card demos,
+- cell labels,
+- selected-cell or last-move highlighting,
+- device position to board coordinate mapping,
+- board coordinate to center-point mapping.
 
 ## P6 – Charts
 
-Diagramme sollen klein anfangen und später wachsen.
+Charts should start small:
 
-### Erste Charttypen
+- function plot,
+- polyline plot,
+- scatter plot,
+- bar chart,
+- simple axes,
+- simple legend.
 
-- Funktionsplot.
-- Polyline-Plot.
-- Scatterplot.
-- Balkendiagramm.
-- einfache Achsen.
-- einfache Legende.
+Later candidates:
 
-### Spätere Charttypen
-
-- Histogramm.
-- Boxplot.
-- Heatmap.
-- Suchbaum-/Graphvisualisierung.
-- Bewertungsverlauf bei Game-AI.
+- histogram,
+- box plot,
+- heatmap,
+- search-tree visualization,
+- Game-AI evaluation timeline.
 
 ## P7 – Renderer Backends
 
-Nach SVG können konkrete Ausgabe- oder UI-Backends folgen.
+Possible later backends:
 
-| Backend | Zweck |
+| Backend | Purpose |
 |---|---|
-| Bitmap | Export von PNG/BMP für Dokumentation und Tests |
-| Win32/GDI+ | einfache Windows-Demo ohne großes Framework |
-| Direct2D | späteres performanteres Windows-Backend |
-| Skia | plattformübergreifendes 2D-Rendering |
-| Cairo | plattformübergreifendes 2D-Rendering, insbesondere Linux-nah |
-| Terminal/Sixel | experimentell für TUI-nahe Visualisierung |
-| HTML Canvas | späterer Web-/Dokumentations-Export |
+| Bitmap | image export for documentation and tests |
+| Win32/GDI+ | simple Windows demo backend |
+| Direct2D | later higher-performance Windows backend |
+| Skia | cross-platform 2D rendering |
+| Cairo | cross-platform 2D rendering, especially useful on Linux |
+| Terminal/Sixel | experimental terminal-oriented visualization |
+| HTML Canvas | later web/documentation export |
 
 ## P8 – Demos
 
-Demos sollen klein und verständlich bleiben.
+Demos should stay small and explain one concept each:
 
 - `demo_gomoku_board`
 - `demo_function_plot`
@@ -159,28 +133,15 @@ Demos sollen klein und verständlich bleiben.
 - `demo_chess_board`
 - `demo_svg_export`
 
-Jede Demo sollte erklären, welches Konzept sie zeigt.
-
 ## P9 – Tests
 
-### Testbereiche
+Test areas:
 
-- Geometrie.
-- Koordinatentransformation.
-- Bounds.
-- Board-Mapping.
-- SVG-Ausgabe.
-- Chart-Skalierung.
+- geometry,
+- coordinate transformations,
+- bounds,
+- board mapping,
+- SVG output,
+- chart scaling.
 
-### Testprinzip
-
-Grafiktests sollten nicht nur Pixelvergleiche sein. Viele Tests können textbasiert oder modellbasiert erfolgen, z. B. durch Prüfung von SVG-Elementen, Koordinaten und Bounds.
-
-## Spätere Ideen
-
-- einfache Animationen.
-- interaktive Werkzeuge.
-- Export nach HTML Canvas.
-- Scene-Inspector.
-- kleine Designer-/Preview-Anwendung.
-- Integration in SASD UI Toolkit oder SASD UI Platform.
+Many tests should be model-based or text-based, for example by checking SVG elements, coordinates, and bounds instead of relying only on pixel comparisons.

@@ -1,76 +1,54 @@
 # SASD Graphics Toolkit – Project Overview
 
-## Kurzbeschreibung
+## Short Description
 
-**SASD Graphics Toolkit** ist als moderner 2D-Grafik-Unterbau für SASD-Projekte gedacht. Der Schwerpunkt liegt nicht auf einer fertigen Endanwender-Anwendung, sondern auf wiederverwendbaren Modellen, Zeichenoperationen, Koordinatensystemen und Renderern.
+**SASD Graphics Toolkit** is planned as a modern 2D graphics foundation for SASD projects. The focus is not an end-user application, but reusable models, drawing operations, coordinate systems, and renderers.
 
-Das Toolkit soll später in Projekten wie **SASD GameWorks Lab**, **SASD Numerics / Math Toolkit**, **SASD UI Platform** und weiteren Lern- oder Forschungsanwendungen eingesetzt werden.
+The toolkit is intended to support projects such as **SASD GameWorks Lab**, **SASD Numerics / Math Toolkit**, **SASD UI Toolkit**, and future learning or research tools.
 
-## Warum dieses Projekt?
+## Why This Project Exists
 
-Mehrere SASD-Projekte benötigen ähnliche grafische Grundfunktionen:
+Several SASD projects need similar visualization features:
 
-- Raster und Bretter für klassische Spiele.
-- Funktionsplots und Diagramme für Numerik und Statistik.
-- einfache 2D-Zeichnungen für Dokumentation, Analyse und Demos.
-- exportierbare Visualisierungen, insbesondere SVG.
-- saubere Trennung zwischen Fachmodell und Darstellung.
+- grids and boards for classical games,
+- function plots and diagrams for numerics and statistics,
+- compact 2D drawings for documentation and analysis,
+- exportable visualizations, especially SVG,
+- a clean separation between domain model and rendering.
 
-Ohne gemeinsamen Unterbau würden diese Funktionen in mehreren Repositories mehrfach entstehen. Das Graphics Toolkit soll diese Wiederholung vermeiden, ohne sofort ein übergroßes Framework zu werden.
+A shared graphics toolkit helps avoid duplicating these concepts across repositories.
 
-## Zielgruppen
+## Target Users
 
-### Entwickler
+- Developers who need testable graphics models without depending on a specific UI framework.
+- Readers and learners who want understandable examples for geometry, mapping, and rendering.
+- SASD projects that need boards, charts, diagrams, or visual debugging output.
 
-Entwickler sollen einfache, testbare Grafikmodelle verwenden können, ohne sofort an WinForms, WPF, SkiaSharp oder ein anderes konkretes Backend gebunden zu sein.
+## In Scope
 
-### Lernende und Leser der Dokumentation
+- 2D geometry primitives.
+- Coordinate mapping and transformations.
+- Scene and layer models.
+- SVG as the first renderer/export target.
+- Boards, grids, and simple charts.
+- Small demos and tests.
 
-Die Bibliothek soll verständlich aufgebaut sein. Geometrie, Koordinaten, Transformationen, Layer und Rendering sollen nachvollziehbar dokumentiert werden.
+## Out of Scope
 
-### SASD-Projekte
+- A full game engine.
+- A complete GUI framework.
+- Game rules or AI algorithms.
+- Numerical algorithms that belong into SASD Numerics.
+- A replacement for Qt, GTK, wxWidgets, Skia, or Cairo.
 
-Andere SASD-Projekte sollen das Toolkit gezielt als Unterbau nutzen können, sobald konkrete Funktionen stabil genug sind.
+## Guiding Decisions
 
-## Produktgrenzen
+1. Keep the core free from UI-framework dependencies.
+2. Use SVG early because it is text-based, testable, and useful in documentation.
+3. Let real demos drive abstractions.
+4. Keep geometry and mapping logic testable without a display.
+5. Keep documentation close to implementation decisions.
 
-### Das Projekt soll leisten
+## First Expected Result
 
-- 2D-Grundgeometrie bereitstellen.
-- Zeichenmodelle und einfache Szenen beschreiben.
-- Koordinatensysteme und Transformationen abbilden.
-- SVG als erstes Exportformat unterstützen.
-- Boards, Grids und einfache Charts ermöglichen.
-- Beispiele und Tests liefern.
-
-### Das Projekt soll bewusst nicht leisten
-
-- keine komplette Game Engine.
-- kein vollwertiges GUI-Framework.
-- kein Ersatz für WPF, WinForms, Avalonia, Qt oder Skia.
-- keine Spielregeln oder Spiel-KI.
-- keine numerischen Algorithmen, die besser in SASD Numerics gehören.
-
-## Leitende Entscheidungen
-
-1. **Core zuerst:** Die Kernbibliothek bleibt frei von UI-Framework-Abhängigkeiten.
-2. **SVG früh:** SVG ist ideal als erstes Ziel, weil es textbasiert, testbar und dokumentationsfreundlich ist.
-3. **Demos als Treiber:** Abstraktionen entstehen aus konkreten Beispielen wie Go-Moku-Board, Koordinatensystem und Funktionsplot.
-4. **Testbarkeit:** Geometrie- und Transformationslogik muss ohne UI getestet werden können.
-5. **Dokumentation parallel:** Jedes größere Konzept erhält eine kurze Erklärung und mindestens ein Beispiel.
-
-## Erwartetes erstes Ergebnis
-
-Nach der ersten Implementierungsphase sollte das Repository mindestens enthalten:
-
-- eine Solution-Struktur,
-- `Sasd.Graphics.Core`,
-- grundlegende Geometrietypen,
-- einen einfachen SVG-Renderer,
-- Unit-Tests,
-- eine kleine Demo-Ausgabe als SVG,
-- Dokumentation zur Architektur.
-
-## Langfristige Vision
-
-Langfristig kann das Toolkit zur **SASD Graphics Toolbox** ausgebaut werden: ein kleines, robustes Fundament für Zeichnungen, Diagramme, technische Visualisierungen, Spielbretter und Lehrbeispiele.
+The first useful milestone should provide a small C++20/CMake baseline with core geometry, a simple SVG export path, unit tests, and a small visual demo.

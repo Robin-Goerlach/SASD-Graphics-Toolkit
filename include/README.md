@@ -1,19 +1,18 @@
 # include
 
-Dieses Verzeichnis ist für die öffentlichen Header des späteren C++-Toolkits vorgesehen.
+This directory is reserved for the public C++ headers of the future toolkit.
 
-Vorgeschlagene Struktur:
+Planned namespace layout:
 
 ```text
-include/
-└── sasd/graphics/
-    ├── geometry/
-    ├── styling/
-    ├── scene/
-    ├── coordinates/
-    ├── export/
-    ├── boards/
-    └── charts/
+include/sasd/graphics/
+    geometry/
+    coordinates/
+    style/
+    scene/
+    rendering/
+    boards/
+    charts/
 ```
 
-Öffentliche Header sollen möglichst kleine, stabile und gut dokumentierte Schnittstellen anbieten.
+German companion: [README.de.md](README.de.md).

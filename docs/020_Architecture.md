@@ -6,7 +6,7 @@ Die Architektur des **SASD Graphics Toolkit** soll eine klare Trennung zwischen 
 
 Das wichtigste Ziel lautet:
 
-> Der fachliche Grafik-Core darf nicht wissen, ob später nach SVG, WinForms, WPF, SkiaSharp oder Bitmap gerendert wird.
+> Der fachliche Grafik-Core darf nicht wissen, ob später nach SVG, Win32/GDI+, Direct2D, Skia, Cairo, Terminal/Sixel oder Bitmap gerendert wird.
 
 ## Layer-Modell
 
@@ -15,7 +15,7 @@ Application / Demo
     |
     v
 Domain-specific Visualizers
-    |        Beispiel: GoMokuBoardVisualizer, FunctionPlotVisualizer
+    |        Beispiel: GomokuBoardVisualizer, FunctionPlotVisualizer
     v
 Scene Model
     |        Primitive, Layer, Styles, Text, Shapes
@@ -24,27 +24,42 @@ Coordinate & Layout Core
     |        Viewport, Bounds, Transformations, Hit-Testing
     v
 Renderer Abstraction
-    |        IRenderer, RenderTarget, RenderContext
+    |        Renderer, RenderTarget, RenderContext
     v
 Concrete Renderer
-             SvgRenderer, WinFormsRenderer, WpfRenderer, SkiaRenderer
+             SvgRenderer, BitmapRenderer, Win32Renderer, SkiaRenderer, CairoRenderer
 ```
 
-## Vorgeschlagene Projekte
+## Vorgeschlagene Projektstruktur
 
 ```text
+include/
+└── sasd/graphics/
+    ├── geometry/
+    ├── styling/
+    ├── scene/
+    ├── coordinates/
+    ├── export/
+    ├── boards/
+    └── charts/
+
 src/
-├── Sasd.Graphics.Core
-├── Sasd.Graphics.Rendering.Svg
-├── Sasd.Graphics.Boards
-├── Sasd.Graphics.Charts
-├── Sasd.Graphics.Rendering.WinForms
-└── Sasd.Graphics.DemoApp
+├── core/
+├── rendering_svg/
+├── boards/
+├── charts/
+└── demo/
+
+tests/
+├── core/
+├── rendering_svg/
+├── boards/
+└── charts/
 ```
 
-## Sasd.Graphics.Core
+## Core
 
-Der Core ist die wichtigste Schicht. Er enthält keine UI-Abhängigkeit.
+Der Core ist die wichtigste Schicht. Er enthält keine Abhängigkeit auf konkrete UI- oder Rendering-Frameworks.
 
 ### Verantwortlichkeiten
 
@@ -58,9 +73,10 @@ Der Core ist die wichtigste Schicht. Er enthält keine UI-Abhängigkeit.
 
 ### Nicht im Core
 
-- `System.Windows.Forms`.
-- WPF-Typen.
-- SkiaSharp-Typen.
+- Win32/GDI+-Typen.
+- Direct2D-Typen.
+- Qt-/GTK-Typen.
+- Skia-/Cairo-Typen.
 - konkrete Dateidialoge.
 - Spiellogik.
 - numerische Fachalgorithmen.
@@ -90,10 +106,15 @@ Eine Szene ist ein transportables Modell. Renderer übersetzen dieses Modell in 
 
 Eine spätere Minimalform könnte so aussehen:
 
-```csharp
-public interface IGraphicsRenderer
+```cpp
+namespace sasd::graphics
 {
-    void Render(Scene scene, RenderTarget target, RenderOptions options);
+    class renderer
+    {
+    public:
+        virtual ~renderer() = default;
+        virtual void render(const scene& scene, const render_options& options) = 0;
+    };
 }
 ```
 
@@ -143,6 +164,20 @@ Charts sollten nicht sofort als großes Framework entstehen. Für den Anfang rei
 
 Statistische oder numerische Berechnungen gehören nicht in Charts, sondern in SASD Numerics. Charts visualisieren Ergebnisse.
 
+## CMake-Zielbild
+
+Eine mögliche Zielstruktur der CMake-Targets:
+
+```text
+sasd_graphics_core
+sasd_graphics_rendering_svg
+sasd_graphics_boards
+sasd_graphics_charts
+sasd_graphics_demo
+```
+
+Die Core-Bibliothek sollte zuerst auch ohne optionale Renderer baubar sein.
+
 ## Fehlervermeidung
 
 ### Gefahr: zu früh zu allgemein
@@ -157,12 +192,12 @@ Gegenmaßnahme:
 
 ### Gefahr: Backend-Vermischung
 
-Wenn im Core direkt WinForms- oder WPF-Typen auftauchen, wird die Bibliothek schwer wiederverwendbar.
+Wenn im Core direkt Win32-, Qt-, GTK-, Skia- oder Cairo-Typen auftauchen, wird die Bibliothek schwer wiederverwendbar.
 
 Gegenmaßnahme:
 
 - eigene Core-Typen,
-- Adapter in separaten Projekten,
+- Adapter in separaten Modulen,
 - klare Projektabhängigkeiten.
 
 ### Gefahr: GameWorks-Logik im Graphics Toolkit
@@ -171,7 +206,7 @@ Ein Go-Moku-Board darf visualisiert werden, aber Gewinnprüfung und KI gehören 
 
 Gegenmaßnahme:
 
-- `Boards` kennt Felder und Steine als Darstellung,
+- `boards` kennt Felder und Steine als Darstellung,
 - `GameWorks` kennt Regeln, Züge und Bewertung.
 
 ## Empfohlene erste technische Entscheidung

@@ -19,14 +19,14 @@ Grundlage für alle weiteren Module.
 
 ### Typen
 
-- `Point2D`
-- `Size2D`
-- `Vector2D`
-- `Rectangle2D`
-- `LineSegment2D`
-- `Circle2D`
-- `Polygon2D`
-- `Bounds2D`
+- `point2d`
+- `size2d`
+- `vector2d`
+- `rect2d`
+- `line_segment2d`
+- `circle2d`
+- `polygon2d`
+- `bounds2d`
 
 ### Operationen
 
@@ -34,7 +34,7 @@ Grundlage für alle weiteren Module.
 - Bounds-Berechnung.
 - Schnitt- und Enthält-Prüfungen, zunächst nur einfache Fälle.
 - Normalisierung von Rechtecken.
-- Mapping von Weltkoordinaten auf Bildschirmkoordinaten.
+- Mapping von Weltkoordinaten auf Ausgabe-Koordinaten.
 
 ## P2 – Styling
 
@@ -48,7 +48,7 @@ Stile beschreiben die Darstellung, nicht die Fachlogik.
 - Symbolstil.
 - Themes.
 
-Wichtig: Der Core sollte eigene einfache Stilmodelle besitzen und nicht direkt `System.Drawing.Color`, WPF-Brushes oder Skia-Typen verwenden.
+Wichtig: Der Core sollte eigene einfache Stilmodelle besitzen und nicht direkt Win32-, Qt-, GTK-, Skia- oder Cairo-Typen verwenden.
 
 ## P3 – Scene Model
 
@@ -137,25 +137,27 @@ Diagramme sollen klein anfangen und später wachsen.
 
 ## P7 – Renderer Backends
 
-Nach SVG können konkrete UI-Backends folgen.
+Nach SVG können konkrete Ausgabe- oder UI-Backends folgen.
 
 | Backend | Zweck |
 |---|---|
-| WinForms | einfache Demo-App, schnelle Integration in bestehende Windows-Projekte |
-| WPF | bessere Vektor-/Layoutintegration, spätere Desktop-Demos |
-| SkiaSharp | plattformübergreifendes 2D-Rendering |
-| Bitmap | Export von PNG/JPEG für Doku und Tests |
+| Bitmap | Export von PNG/BMP für Dokumentation und Tests |
+| Win32/GDI+ | einfache Windows-Demo ohne großes Framework |
+| Direct2D | späteres performanteres Windows-Backend |
+| Skia | plattformübergreifendes 2D-Rendering |
+| Cairo | plattformübergreifendes 2D-Rendering, insbesondere Linux-nah |
 | Terminal/Sixel | experimentell für TUI-nahe Visualisierung |
+| HTML Canvas | späterer Web-/Dokumentations-Export |
 
 ## P8 – Demos
 
 Demos sollen klein und verständlich bleiben.
 
-- `Demo_GomokuBoard`
-- `Demo_FunctionPlot`
-- `Demo_Transforms`
-- `Demo_ChessBoard`
-- `Demo_SvgExport`
+- `demo_gomoku_board`
+- `demo_function_plot`
+- `demo_transforms`
+- `demo_chess_board`
+- `demo_svg_export`
 
 Jede Demo sollte erklären, welches Konzept sie zeigt.
 
@@ -181,4 +183,4 @@ Grafiktests sollten nicht nur Pixelvergleiche sein. Viele Tests können textbasi
 - Export nach HTML Canvas.
 - Scene-Inspector.
 - kleine Designer-/Preview-Anwendung.
-- Integration in SASD UI Platform.
+- Integration in SASD UI Toolkit oder SASD UI Platform.

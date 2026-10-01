@@ -1,32 +1,28 @@
 # Roadmap
 
-Diese Roadmap beschreibt eine sinnvolle Entwicklungsreihenfolge für das **SASD Graphics Toolkit**. Sie ist bewusst so aufgebaut, dass schnell sichtbare Ergebnisse entstehen, ohne die Architektur zu früh zu überfrachten.
+This roadmap describes a sensible development order for **SASD Graphics Toolkit**. It is intentionally staged so that visible results appear early without overbuilding the architecture.
 
 ## M0 – Repository Baseline
 
-Ziel: Das Repository wirkt öffentlich verständlich und ist für Entwicklung vorbereitet.
+Goal: make the public repository understandable and ready for development.
 
-### Ergebnis
+Result:
 
-- README mit Projektbeschreibung.
-- Screenshot/Preview als SVG.
-- Dokumentationsverzeichnis.
-- Architekturüberblick.
-- Feature-Katalog.
+- English README as default.
+- German companion documentation.
+- SVG preview image.
+- Documentation directory.
+- Architecture overview.
+- Feature catalog.
 - AGENTS.md.
-- Grundstruktur für `include/`, `src/` und `tests/`.
-
-### Akzeptanzkriterien
-
-- Ein Besucher versteht in unter zwei Minuten, was das Projekt werden soll.
-- Die Abgrenzung zu GameWorks, Numerics und UI Toolkit ist dokumentiert.
-- Die erste technische Richtung ist als modernes C++/CMake-Projekt erkennbar.
+- CMake baseline.
+- MIT license confirmed.
 
 ## M1 – Core Geometry
 
-Ziel: Fundament für alle weiteren Grafikfunktionen schaffen.
+Goal: create the foundation for all later graphics work.
 
-### Umfang
+Scope:
 
 - `point2d`
 - `size2d`
@@ -34,149 +30,101 @@ Ziel: Fundament für alle weiteren Grafikfunktionen schaffen.
 - `rect2d`
 - `line_segment2d`
 - `bounds2d`
-- einfache mathematische Hilfsfunktionen
 
-### Akzeptanzkriterien
+Acceptance criteria:
 
-- Unit-Tests für alle Core-Typen.
-- keine Abhängigkeit auf UI- oder Rendering-Frameworks.
-- öffentliche Typen und Funktionen sind dokumentiert.
+- Unit tests for all public types.
+- No dependency on UI frameworks.
+- Public types have clear comments and examples.
 
 ## M2 – Coordinate Mapping
 
-Ziel: saubere Umrechnung zwischen Modell-, Welt- und Ausgabe-Koordinaten.
+Goal: convert between model, world, and output coordinates.
 
-### Umfang
+Scope:
 
-- Viewport.
-- World-to-device Mapping.
-- Skalierung.
-- Translation.
-- optionale Y-Achsen-Invertierung.
-- Bounds-Clipping, zunächst einfach.
+- viewport,
+- world-to-device mapping,
+- scaling,
+- translation,
+- optional y-axis inversion,
+- basic bounds clipping.
 
-### Akzeptanzkriterien
+## M3 – Scene Model and Styles
 
-- reproduzierbare Tests für typische Mapping-Fälle.
-- dokumentiertes Beispiel für mathematischen Plot.
-- dokumentiertes Beispiel für Brettkoordinate.
+Goal: describe drawings as testable models.
 
-## M3 – Scene Model und Styles
+Scope:
 
-Ziel: Zeichnungen als Modell beschreiben können.
-
-### Umfang
-
-- Scene.
-- Layer.
-- Shape-Primitive.
-- StrokeStyle.
-- FillStyle.
-- TextStyle.
-- einfache Z-Order.
-
-### Akzeptanzkriterien
-
-- eine Scene kann ohne Renderer erzeugt und geprüft werden.
-- Styles sind unabhängig von Win32, Qt, GTK, Skia und Cairo.
-- erste Beispielszene mit Grid, Linie und Text.
+- scene,
+- layer,
+- shape primitives,
+- stroke/fill/text styles,
+- simple z-order.
 
 ## M4 – SVG Renderer
 
-Ziel: erster sichtbarer Output aus dem Scene Model.
+Goal: produce visible output from the scene model.
 
-### Umfang
+Scope:
 
-- Export von Linien.
-- Export von Rechtecken.
-- Export von Kreisen.
-- Export von Text.
-- Export einfacher Pfade/Polylines.
-- ViewBox-Unterstützung.
-
-### Akzeptanzkriterien
-
-- Demo erzeugt eine SVG-Datei.
-- Tests prüfen zentrale SVG-Elemente.
-- README-Screenshot kann perspektivisch aus dem Toolkit selbst erzeugt werden.
+- lines,
+- rectangles,
+- circles,
+- text,
+- simple paths/polylines,
+- viewBox support.
 
 ## M5 – Board Renderer
 
-Ziel: Visualisierung für GameWorks Lab vorbereiten.
+Goal: prepare visualization for GameWorks Lab.
 
-### Umfang
+Scope:
 
-- generisches Grid.
-- Go-Moku-Board.
-- Schachbrett-Grunddarstellung.
-- Feldbeschriftungen.
-- Marker/Steine/Figuren-Platzhalter.
-- Hit-Testing.
-
-### Akzeptanzkriterien
-
-- Go-Moku-Demo mit 19 × 19 Raster.
-- letzter Zug kann hervorgehoben werden.
-- Pixelposition kann in Brettkoordinate umgerechnet werden.
-- SVG-Export funktioniert.
+- generic grid,
+- Go-Moku board,
+- chess-board baseline,
+- coordinate labels,
+- markers/stones/placeholders,
+- hit testing.
 
 ## M6 – Chart Basics
 
-Ziel: einfache Visualisierung für Numerics/Math Toolkit.
+Goal: provide first useful visualization for Numerics/Math Toolkit.
 
-### Umfang
+Scope:
 
-- Achsen.
-- Skalierung.
-- Polyline-Serie.
-- Scatter-Serie.
-- einfache Legende.
-- Funktionsplot-Demo.
+- axes,
+- scaling,
+- polyline series,
+- scatter series,
+- simple legend,
+- function-plot demo.
 
-### Akzeptanzkriterien
+## M7 – Demo Application
 
-- Funktionswerte können visualisiert werden.
-- Achsenbeschriftung ist einfach, aber brauchbar.
-- keine numerischen Fachalgorithmen im Graphics Toolkit.
+Goal: create a practical visual testbed.
 
-## M7 – Native oder dateibasierte Demo
+Scope:
 
-Ziel: praktisches Testbett für Board, Chart und Export.
+- small demo app or command-line demo generator,
+- board preview,
+- chart preview,
+- SVG export,
+- coordinate/hit-test diagnostics.
 
-### Varianten
+## M8 – Stabilization and First Pre-Release
 
-- zunächst dateibasierte CLI-Demo, die SVG-Dateien erzeugt.
-- später optional native Demo mit Win32/Direct2D, Skia, Cairo oder Integration in SASD UI Toolkit.
+Goal: prepare a first usable preview version.
 
-### Akzeptanzkriterien
+Scope:
 
-- Demo kann lokal gebaut und ausgeführt werden.
-- Beispiel-SVG kann exportiert werden.
-- keine Fachlogik im Rendering- oder UI-Code.
+- API review,
+- documentation cleanup,
+- example cleanup,
+- CI verification,
+- release notes.
 
-## M8 – Stabilisierung und erste Release-Vorbereitung
+## Priority Rule
 
-Ziel: erste nutzbare Vorabversion.
-
-### Umfang
-
-- API-Review.
-- Dokumentation ergänzen.
-- Beispiele aufräumen.
-- CI einrichten.
-- Lizenzentscheidung treffen.
-- Versionierung festlegen.
-
-### Akzeptanzkriterien
-
-- Build und Tests laufen automatisiert.
-- README spiegelt den tatsächlichen Stand wider.
-- Release Notes beschreiben klar, was funktioniert und was nicht.
-
-## Prioritätsregel
-
-Wenn Unsicherheit entsteht, gilt:
-
-> Erst eine konkrete, kleine Demo bauen. Dann abstrahieren.
-
-Für den Anfang heißt das: **Go-Moku-Board + SVG-Export** ist wichtiger als ein perfektes allgemeines Grafikframework.
+When in doubt, prefer a small working demo plus tests over a large abstract framework.

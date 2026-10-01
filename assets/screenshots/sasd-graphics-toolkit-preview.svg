@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">SASD Graphics Toolkit preview</title>
+  <desc id="desc">Concept screenshot showing a graphics workbench with layers, a vector canvas, charts, board rendering and export targets.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1020"/>
+      <stop offset="0.55" stop-color="#111827"/>
+      <stop offset="1" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#162033"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#38bdf8"/>
+      <stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#020617" flood-opacity="0.45"/>
+    </filter>
+    <style>
+      .title { font: 700 32px 'Segoe UI', Arial, sans-serif; fill: #e5f3ff; }
+      .subtitle { font: 400 16px 'Segoe UI', Arial, sans-serif; fill: #9fb3c8; }
+      .h2 { font: 700 17px 'Segoe UI', Arial, sans-serif; fill: #dbeafe; }
+      .small { font: 400 13px 'Segoe UI', Arial, sans-serif; fill: #94a3b8; }
+      .tiny { font: 400 11px 'Segoe UI', Arial, sans-serif; fill: #7dd3fc; }
+      .panel { fill: url(#panel); stroke: #26364f; stroke-width: 1; rx: 18; filter: url(#shadow); }
+      .card { fill: #0b1222; stroke: #26364f; stroke-width: 1; rx: 14; }
+      .grid { stroke: #223047; stroke-width: 1; opacity: 0.85; }
+      .axis { stroke: #7dd3fc; stroke-width: 2; opacity: 0.95; }
+      .line { fill: none; stroke: #38bdf8; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+      .line2 { fill: none; stroke: #a78bfa; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; opacity: 0.9; }
+      .dot { fill: #38bdf8; stroke: #e0f2fe; stroke-width: 2; }
+      .stoneBlack { fill: #0f172a; stroke: #64748b; stroke-width: 2; }
+      .stoneWhite { fill: #f8fafc; stroke: #94a3b8; stroke-width: 2; }
+      .tag { fill: #12233a; stroke: #284766; rx: 12; }
+    </style>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <circle cx="1140" cy="120" r="240" fill="#1d4ed8" opacity="0.11"/>
+  <circle cx="140" cy="650" r="220" fill="#0ea5e9" opacity="0.10"/>
+
+  <rect x="42" y="38" width="1196" height="644" rx="28" fill="#08111f" stroke="#23344f" stroke-width="1.5" filter="url(#shadow)"/>
+
+  <g transform="translate(74,66)">
+    <text class="title" x="0" y="0" dominant-baseline="hanging">SASD Graphics Toolkit</text>
+    <text class="subtitle" x="0" y="44">Core geometry · scene graph · board rendering · charts · SVG export</text>
+    <rect class="tag" x="898" y="0" width="210" height="36"/>
+    <text class="tiny" x="926" y="23">CONCEPT BASELINE</text>
+  </g>
+
+  <g transform="translate(74,142)">
+    <rect class="panel" x="0" y="0" width="238" height="492"/>
+    <text class="h2" x="24" y="34">Scene Layers</text>
+    <g transform="translate(24,62)">
+      <rect class="card" x="0" y="0" width="190" height="54"/>
+      <circle cx="22" cy="27" r="8" fill="#38bdf8"/>
+      <text class="small" x="42" y="23">Coordinate Grid</text>
+      <text class="tiny" x="42" y="39">World → Screen</text>
+
+      <rect class="card" x="0" y="70" width="190" height="54"/>
+      <circle cx="22" cy="97" r="8" fill="#a78bfa"/>
+      <text class="small" x="42" y="93">Vector Shapes</text>
+      <text class="tiny" x="42" y="109">Line, Rect, Path</text>
+
+      <rect class="card" x="0" y="140" width="190" height="54"/>
+      <circle cx="22" cy="167" r="8" fill="#34d399"/>
+      <text class="small" x="42" y="163">Charts</text>
+      <text class="tiny" x="42" y="179">Axis, Curve, Legend</text>
+
+      <rect class="card" x="0" y="210" width="190" height="54"/>
+      <circle cx="22" cy="237" r="8" fill="#f59e0b"/>
+      <text class="small" x="42" y="233">Boards</text>
+      <text class="tiny" x="42" y="249">Go-Moku, Chess</text>
+    </g>
+
+    <text class="h2" x="24" y="372">Export Targets</text>
+    <g transform="translate(24,398)">
+      <rect class="tag" x="0" y="0" width="72" height="28"/>
+      <text class="tiny" x="22" y="18">SVG</text>
+      <rect class="tag" x="82" y="0" width="82" height="28"/>
+      <text class="tiny" x="103" y="18">Bitmap</text>
+      <rect class="tag" x="0" y="40" width="94" height="28"/>
+      <text class="tiny" x="16" y="58">WinForms</text>
+      <rect class="tag" x="104" y="40" width="70" height="28"/>
+      <text class="tiny" x="126" y="58">WPF</text>
+    </g>
+  </g>
+
+  <g transform="translate(338,142)">
+    <rect class="panel" x="0" y="0" width="568" height="492"/>
+    <text class="h2" x="26" y="34">Vector Canvas</text>
+    <text class="small" x="398" y="34">Viewport: 0..100 × 0..100</text>
+    <rect class="card" x="26" y="62" width="516" height="386"/>
+
+    <g transform="translate(58,92)">
+      <rect x="0" y="0" width="452" height="320" fill="#07111f" rx="10"/>
+      <g>
+        <path class="grid" d="M0 40H452 M0 80H452 M0 120H452 M0 160H452 M0 200H452 M0 240H452 M0 280H452"/>
+        <path class="grid" d="M56 0V320 M112 0V320 M168 0V320 M224 0V320 M280 0V320 M336 0V320 M392 0V320"/>
+      </g>
+      <path class="axis" d="M0 282H452 M58 320V0"/>
+      <path class="line" d="M24 260 C80 228, 105 170, 152 182 S224 280, 275 198 S350 86, 428 126"/>
+      <path class="line2" d="M24 220 C98 250, 128 88, 198 124 S314 214, 426 64"/>
+      <circle class="dot" cx="152" cy="182" r="7"/>
+      <circle class="dot" cx="275" cy="198" r="7"/>
+      <circle class="dot" cx="428" cy="126" r="7"/>
+      <rect x="286" y="18" width="142" height="64" rx="12" fill="#0f1d32" stroke="#2c4568"/>
+      <text class="tiny" x="306" y="42">Transform</text>
+      <text class="small" x="306" y="62">World → SVG</text>
+    </g>
+  </g>
+
+  <g transform="translate(932,142)">
+    <rect class="panel" x="0" y="0" width="272" height="492"/>
+    <text class="h2" x="24" y="34">Board Preview</text>
+    <rect class="card" x="24" y="62" width="224" height="224"/>
+    <g transform="translate(50,88)">
+      <rect x="0" y="0" width="172" height="172" rx="4" fill="#c89f62"/>
+      <path d="M19 0V172 M38 0V172 M57 0V172 M76 0V172 M95 0V172 M114 0V172 M133 0V172 M152 0V172" stroke="#513a1f" stroke-width="1" opacity="0.8"/>
+      <path d="M0 19H172 M0 38H172 M0 57H172 M0 76H172 M0 95H172 M0 114H172 M0 133H172 M0 152H172" stroke="#513a1f" stroke-width="1" opacity="0.8"/>
+      <circle class="stoneBlack" cx="76" cy="76" r="8"/>
+      <circle class="stoneWhite" cx="95" cy="76" r="8"/>
+      <circle class="stoneBlack" cx="95" cy="95" r="8"/>
+      <circle class="stoneWhite" cx="114" cy="95" r="8"/>
+      <circle class="stoneBlack" cx="76" cy="114" r="8"/>
+      <circle cx="114" cy="95" r="13" fill="none" stroke="#22c55e" stroke-width="3"/>
+    </g>
+
+    <text class="h2" x="24" y="330">Design Rules</text>
+    <text class="small" x="24" y="360">• core has no UI dependency</text>
+    <text class="small" x="24" y="386">• renderer adapters are optional</text>
+    <text class="small" x="24" y="412">• demos drive abstractions</text>
+    <text class="small" x="24" y="438">• geometry is unit tested</text>
+  </g>
+
+  <text class="tiny" x="74" y="665">Preview asset for README.md · Generated as editable SVG</text>
+</svg>

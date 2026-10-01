@@ -1,180 +1,84 @@
-# Integration mit GameWorks Lab und Numerics
+# Integration with GameWorks Lab and Numerics
 
-## Ausgangslage
+This document explains how **SASD Graphics Toolkit** should interact with related SASD projects.
 
-Das SASD Graphics Toolkit soll nicht isoliert entstehen. Es ist als Unterbau für mehrere SASD-Projekte gedacht, insbesondere:
+## Role of the Graphics Toolkit
 
-- **SASD GameWorks Lab**
-- **SASD Numerics / Math Toolkit**
-- **SASD UI Platform / UI Toolkit**
+The Graphics Toolkit is responsible for visualization infrastructure:
 
-Die zentrale Frage lautet: Was gehört in welches Projekt?
+- drawing models,
+- geometry primitives,
+- coordinate mapping,
+- scene and layer structures,
+- renderers,
+- board and chart visualization helpers.
 
-## Grundsatz
+It should not own domain logic.
 
-> Graphics visualisiert. Numerics rechnet. GameWorks spielt. UI bedient.
+## GameWorks Lab
 
-Diese Trennung ist wichtig, damit keine schwer wartbaren Abhängigkeiten entstehen.
+**SASD GameWorks Lab** should own game rules, game states, legal moves, evaluation, search, and AI logic.
 
-## Abgrenzung zu SASD GameWorks Lab
+The Graphics Toolkit can provide:
 
-### Gehört ins GameWorks Lab
+- generic grids,
+- Go-Moku board rendering,
+- chess-board rendering,
+- coordinate labels,
+- last-move markers,
+- hit testing from device position to board coordinate,
+- search-tree or evaluation diagrams later.
 
-- Spielregeln.
-- Spielzustände.
-- erlaubte Züge.
-- KI-Spieler.
-- Bewertungsfunktionen.
-- Suchalgorithmen.
-- Partieprotokolle.
+Rule of thumb:
 
-### Gehört ins Graphics Toolkit
+> GameWorks decides what a position means. Graphics decides how it is drawn.
 
-- Brettdarstellung.
-- Rasterdarstellung.
-- Zeichnen von Steinen, Figuren oder Karten.
-- Markierung eines Feldes.
-- Koordinatenbeschriftung.
-- Hit-Testing von Mausposition auf Brettfeld.
-- Export einer Brettstellung als SVG.
+## Numerics / Math Toolkit
 
-### Beispiel Go-Moku
+**SASD Numerics / Math Toolkit** should own numerical algorithms, statistics, functions, interpolation, optimization, and mathematical models.
 
-```text
-GameWorks:
-- BoardState 19x19
-- Move(row, column, player)
-- Win detection
-- AI evaluation
+The Graphics Toolkit can provide:
 
-Graphics Toolkit:
-- GridRenderer
-- StoneShape
-- BoardCoordinateLabelRenderer
-- LastMoveHighlight
-- BoardHitTester
-```
+- axes,
+- plot areas,
+- line and scatter series,
+- scaling and coordinate mapping,
+- legends,
+- exportable SVG diagrams.
 
-## Abgrenzung zu SASD Numerics / Math Toolkit
+Rule of thumb:
 
-### Gehört in Numerics
+> Numerics computes values. Graphics presents values.
 
-- lineare Algebra.
-- Statistik.
-- Interpolation.
-- Approximation.
-- Optimierung.
-- numerische Integration.
-- Regression.
-- Datenanalyse.
+## UI Toolkit / UI Platform
 
-### Gehört ins Graphics Toolkit
+**SASD UI Toolkit** and **SASD UI Platform** may later consume the graphics core for reusable drawing primitives, preview components, or rendering adapters.
 
-- Achsen.
-- Plot-Fläche.
-- Datenserien als Darstellung.
-- Skalierung in Bildschirmkoordinaten.
-- Legenden.
-- SVG-/Bitmap-Export.
+The Graphics Toolkit should not depend on UI projects in its core. UI projects may depend on the Graphics Toolkit, not the other way around.
 
-### Beispiel Funktionsplot
+## Dependency Direction
+
+Preferred direction:
 
 ```text
-Numerics:
-- berechnet f(x)
-- erzeugt Datenpunkte
-- analysiert Nullstellen oder Extrema
-
-Graphics Toolkit:
-- zeichnet Achsen
-- mappt Werte auf Pixel/SVG-Koordinaten
-- zeichnet Kurve und Marker
+GameWorks Lab  ---> Graphics Toolkit
+Numerics       ---> Graphics Toolkit
+UI Toolkit     ---> Graphics Toolkit
 ```
 
-## Abgrenzung zu SASD UI Platform / UI Toolkit
-
-### Gehört in UI Platform / UI Toolkit
-
-- Fenster.
-- Menüs.
-- Toolbars.
-- Bedienkonzepte.
-- Formulare.
-- Dialoge.
-- Desktop-Komponenten.
-
-### Gehört ins Graphics Toolkit
-
-- Zeichenmodell.
-- Renderer.
-- Zeichenprimitive.
-- Koordinatenlogik.
-- Export.
-
-Die UI kann Graphics verwenden, aber Graphics sollte nicht von konkreten UI-Projekten abhängig sein.
-
-## Repository-Strategie
-
-Für den Start ist es sinnvoll, das Graphics Toolkit als eigenständiges Repository zu führen, aber die ersten Features aus konkreten Nachbarprojekten abzuleiten.
-
-### Empfohlener Treiber
-
-1. Go-Moku-Board aus GameWorks Lab.
-2. Funktionsplot aus Numerics/Math Toolkit.
-3. einfache Demo-App aus UI Platform.
-
-Diese Reihenfolge verhindert, dass das Toolkit zu theoretisch wird.
-
-## Umgang mit Doppelentwicklung
-
-Nicht jede kleine Hilfsfunktion muss sofort in ein gemeinsames Projekt extrahiert werden.
-
-### Im Fachprojekt lassen
-
-- einmalige Hilfsfunktionen.
-- stark fachliche Logik.
-- experimenteller Code.
-- Demo-spezifische Sonderfälle.
-
-### In Graphics Toolkit übernehmen
-
-- mehrfach benötigte Geometrietypen.
-- wiederverwendbare Koordinatenmodelle.
-- generische Renderer.
-- Board-/Grid-Darstellung.
-- Exportfunktionen.
-
-## Empfohlene erste Schnittstelle zu GameWorks
-
-GameWorks sollte keine Graphics-Typen in seine Kernlogik übernehmen müssen. Stattdessen kann ein Adapter die fachlichen Zustände übersetzen.
+Avoid:
 
 ```text
-GameWorks BoardState
-    -> GameWorksGraphicsAdapter
-        -> Graphics Scene
-            -> SvgRenderer / WinFormsRenderer
+Graphics Toolkit ---> GameWorks Lab
+Graphics Toolkit ---> Numerics
+Graphics Toolkit ---> UI Toolkit core logic
 ```
 
-So bleibt die Spiellogik unabhängig von der Darstellung.
+## First Shared Scenario
 
-## Empfohlene erste Schnittstelle zu Numerics
+The first practical integration scenario should be a Go-Moku board:
 
-Numerics liefert Daten, Graphics zeichnet sie.
-
-```text
-Numerics Result
-    -> PlotDataSeries
-        -> ChartSceneBuilder
-            -> SvgRenderer
-```
-
-Auch hier gilt: Numerics sollte nicht direkt wissen müssen, ob eine Kurve nach SVG oder WinForms gerendert wird.
-
-## Entscheidung für den Projektstart
-
-Das Graphics Toolkit sollte zuerst genau zwei reale Szenarien unterstützen:
-
-1. **Go-Moku-Board als SVG.**
-2. **einfacher Funktionsplot als SVG.**
-
-Wenn diese beiden Szenarien sauber funktionieren, ist der Kern vermutlich richtig geschnitten.
+1. GameWorks produces a board state.
+2. Graphics converts the board state into a scene.
+3. The SVG renderer writes the scene to an SVG file.
+4. Tests verify board coordinates and SVG structure.

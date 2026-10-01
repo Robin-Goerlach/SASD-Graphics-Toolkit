@@ -1,5 +1,9 @@
 # SASD Graphics Toolkit
 
+[![CMake](https://github.com/Robin-Goerlach/SASD-Graphics-Toolkit/actions/workflows/cmake.yml/badge.svg)](https://github.com/Robin-Goerlach/SASD-Graphics-Toolkit/actions/workflows/cmake.yml)
+![Status](https://img.shields.io/badge/status-concept%20baseline-blue)
+![Language](https://img.shields.io/badge/language-C%2B%2B20-informational)
+
 > Modernes **C++-Grafik-, Visualisierungs- und Zeichenfundament** für SASD-Projekte.
 
 ![SASD Graphics Toolkit Preview](assets/screenshots/sasd-graphics-toolkit-preview.svg)
@@ -149,7 +153,6 @@ Noch nicht vorhanden:
 
 - produktiver Code
 - Release-Artefakte
-- CI/CD
 - Lizenzentscheidung
 - stabiler API-Vertrag
 

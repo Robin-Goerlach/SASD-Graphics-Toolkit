@@ -1,23 +1,14 @@
 # tests
 
-Dieses Verzeichnis ist für spätere Tests vorgesehen.
+This directory is reserved for future tests.
 
-Vorgeschlagene Struktur:
+Planned test areas:
 
-```text
-tests/
-├── core/
-├── rendering_svg/
-├── boards/
-└── charts/
-```
+- geometry primitives,
+- coordinate mapping,
+- scene modeling,
+- SVG export,
+- board and grid mapping,
+- chart scaling.
 
-Besonders wichtig sind Tests für:
-
-- Geometrietypen,
-- Bounds-Berechnungen,
-- Koordinatentransformationen,
-- Board-Hit-Testing,
-- SVG-Ausgabe.
-
-Sobald eine CMake-Struktur vorhanden ist, sollen Tests über `ctest --test-dir build` ausführbar sein.
+German companion: [README.de.md](README.de.md).

@@ -1,101 +1,60 @@
 # AGENTS.md
 
-Arbeitsregeln für Codex/AI-gestützte Entwicklung im Repository **SASD Graphics Toolkit**.
+Development rules for Codex/AI-assisted work in the **SASD Graphics Toolkit** repository.
 
-## Projektzweck
+English is the default documentation language. The German companion file is [AGENTS.de.md](AGENTS.de.md).
 
-Dieses Repository entwickelt einen modernen **C++-2D-Grafik-Unterbau** für SASD-Projekte. Der Fokus liegt auf sauber getrennten Kernmodellen, Geometrie, Koordinaten, Rendering und exportierbaren Visualisierungen.
+## Project Purpose
 
-## Wichtige Abgrenzung
+This repository develops a modern C++20 2D graphics foundation for SASD projects. The focus is on cleanly separated geometry, coordinates, styling, scene modeling, rendering, and exportable visualizations.
 
-- Keine Spielregeln in dieses Repository aufnehmen.
-- Keine numerischen Fachalgorithmen in dieses Repository aufnehmen.
-- Keine UI- oder Rendering-Framework-Typen in den Core übernehmen.
-- Keine unnötig große Architektur bauen, bevor eine Demo sie benötigt.
+## Boundaries
 
-## Zielarchitektur
+Do not add the following to this repository:
 
-```text
-sasd_graphics_core
-    keine UI-Abhängigkeit
+- game rules,
+- chess or Go-Moku AI,
+- numerical algorithms,
+- UI-framework core logic,
+- unnecessary large abstractions before a demo needs them.
 
-sasd_graphics_rendering_svg
-    erster Renderer und primäres Test-/Dokumentationsziel
-
-sasd_graphics_boards
-    Grid-, Board- und Hit-Testing-Hilfen
-
-sasd_graphics_charts
-    einfache Visualisierung von Datenserien
-
-sasd_graphics_demo
-    spätere interaktive oder dateibasierte Demo
-```
-
-## Entwicklungsstil
-
-- Code klar und nachvollziehbar kommentieren.
-- Öffentliche Typen und Funktionen dokumentieren.
-- Kleine, testbare Klassen und freie Funktionen bevorzugen.
-- Keine Magie in Rendering- oder Transformationscode verstecken.
-- Beispiele und Tests mitliefern, sobald neue Konzepte eingeführt werden.
-- Bestehende Dokumentation aktualisieren, wenn Architekturentscheidungen geändert werden.
-
-## Empfohlene Reihenfolge
-
-1. CMake-Projektstruktur anlegen.
-2. `sasd_graphics_core` erstellen.
-3. Geometrietypen implementieren.
-4. Tests für Geometrietypen ergänzen.
-5. Scene Model minimal einführen.
-6. SVG Renderer minimal einführen.
-7. Go-Moku-Board als erste echte Demo erzeugen.
-
-## Build und Test
-
-Aktuell existiert noch kein produktiver Code. Sobald die CMake-Struktur angelegt ist, sollen diese Befehle funktionieren:
-
-```bash
-cmake -S . -B build
-cmake --build build
-ctest --test-dir build
-```
-
-## Commit- und PR-Regeln
-
-- Kleine, nachvollziehbare Änderungen.
-- Dokumentation und Tests zusammen mit Fachänderungen pflegen.
-- README nur mit tatsächlich erreichten Features aktualisieren oder klar als Roadmap kennzeichnen.
-- Keine großen Refactorings ohne sichtbaren Nutzen.
-
-## Namenskonventionen
-
-Vorgeschlagene Namespaces:
+## Target Architecture
 
 ```text
-sasd::graphics
 sasd::graphics::geometry
-sasd::graphics::styling
+sasd::graphics::coordinates
+sasd::graphics::style
 sasd::graphics::scene
-sasd::graphics::rendering
+sasd::graphics::rendering::svg
 sasd::graphics::boards
 sasd::graphics::charts
 ```
 
-Vorgeschlagene Include-Pfade:
+## Coding Rules
 
-```text
-#include <sasd/graphics/geometry/point.hpp>
-#include <sasd/graphics/scene/scene.hpp>
-#include <sasd/graphics/rendering/svg_renderer.hpp>
-```
+- Use C++20.
+- Keep public API names clear and conservative.
+- Prefer small types with tests over large untested frameworks.
+- Keep core code independent of Win32, Qt, GTK, Skia, Cairo, and other concrete rendering frameworks.
+- Add comments where they explain intent, invariants, or non-obvious decisions.
 
-## Qualitätskriterien
+## Documentation Rules
 
-Eine Änderung ist erst dann wirklich gut, wenn sie:
+- Public default documentation is English.
+- German companion documents use `.de.md`.
+- Do not claim planned features are already implemented.
+- Keep README, docs, and roadmap aligned with the actual state of the repository.
 
-- fachlich klar abgegrenzt ist,
-- Tests oder nachvollziehbare Demo-Ausgabe besitzt,
-- keine unnötigen Abhängigkeiten einführt,
-- dokumentiert ist,
-- langfristig wiederverwendbar bleibt.
+## Testing Rules
+
+- Test geometry and coordinate mapping without UI dependencies.
+- Prefer deterministic tests.
+- SVG tests should validate structure and coordinates rather than relying only on pixel comparisons.
+
+## First Implementation Priority
+
+1. Core geometry.
+2. Coordinate mapping.
+3. Scene and style model.
+4. SVG renderer.
+5. Go-Moku board demo.

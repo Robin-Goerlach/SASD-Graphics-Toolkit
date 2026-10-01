@@ -1,27 +1,33 @@
 # Changelog
 
-Alle bemerkenswerten Änderungen an diesem Repository werden hier dokumentiert.
+All notable changes to **SASD Graphics Toolkit** will be documented here.
 
-Das Format orientiert sich lose an *Keep a Changelog*. Versionen sind noch nicht final festgelegt.
+English is the default changelog language. The German companion file is [CHANGELOG.de.md](CHANGELOG.de.md).
+
+The format loosely follows the idea of a human-readable changelog. The project does not yet have a public release.
 
 ## Unreleased
 
 ### Added
 
-- Ausführliches README mit Zielbild, Feature-Gruppen, Roadmap und Projektabgrenzung.
-- Preview-Screenshot als editierbares SVG.
-- Dokumentationsindex unter `docs/`.
-- Projektüberblick.
-- Feature-Katalog.
-- Architekturüberblick.
-- Roadmap.
-- Integrationsnotizen zu SASD GameWorks Lab und SASD Numerics.
-- AGENTS.md für KI-gestützte Entwicklung.
-- CONTRIBUTING.md.
-- Platzhalter für `src/` und `tests/`.
+- Repository baseline for a C++20/CMake graphics toolkit.
+- SVG preview image in `assets/screenshots/`.
+- English default documentation.
+- German companion documentation using `.de.md` files.
+- MIT license file confirmed.
+- Initial architecture, feature catalog, roadmap, and integration notes.
+- AGENTS.md for AI-assisted development.
+- GitHub Actions CMake workflow.
 
-### Notes
+### Changed
 
-- Es existiert noch kein produktiver Code.
-- Lizenzentscheidung ist noch offen.
-- Build- und Testbefehle werden konkretisiert, sobald eine .NET-Solution vorhanden ist.
+- README now treats English as the default language.
+- License section now references the existing MIT license.
+
+### Not Yet Implemented
+
+- Core geometry library.
+- SVG renderer implementation.
+- Board renderer.
+- Chart basics.
+- Stable public API.

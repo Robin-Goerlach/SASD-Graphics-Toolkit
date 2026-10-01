@@ -1,21 +1,23 @@
-# Dokumentation
+# Documentation
 
-Diese Dokumentation beschreibt das Zielbild, die geplanten Features und die Architektur des **SASD Graphics Toolkit**.
+This directory contains the main project documentation for **SASD Graphics Toolkit**.
 
-## Dokumente
+English is the default documentation language. German companion documents use the `.de.md` suffix.
 
-| Datei | Inhalt |
-|---|---|
-| [000_Project_Overview.md](000_Project_Overview.md) | Projektidee, Zielgruppen, Abgrenzung und Nutzen |
-| [010_Feature_Catalog.md](010_Feature_Catalog.md) | Feature-Gruppen, Prioritäten und spätere Ausbaustufen |
-| [020_Architecture.md](020_Architecture.md) | Architektur, Layering, Backends und zentrale Modelle |
-| [030_Roadmap.md](030_Roadmap.md) | Meilensteine von Repository-Baseline bis Demo-App |
-| [040_Integration_GameWorks_Numerics.md](040_Integration_GameWorks_Numerics.md) | Zusammenspiel mit GameWorks Lab und Numerics/Math Toolkit |
+## Documents
 
-## Dokumentationsstil
+| English default | German companion | Purpose |
+|---|---|---|
+| [000_Project_Overview.md](000_Project_Overview.md) | [000_Project_Overview.de.md](000_Project_Overview.de.md) | project idea, target users, boundaries, value |
+| [010_Feature_Catalog.md](010_Feature_Catalog.md) | [010_Feature_Catalog.de.md](010_Feature_Catalog.de.md) | planned feature areas and priorities |
+| [020_Architecture.md](020_Architecture.md) | [020_Architecture.de.md](020_Architecture.de.md) | architecture, layers, render backends, central models |
+| [030_Roadmap.md](030_Roadmap.md) | [030_Roadmap.de.md](030_Roadmap.de.md) | milestone order from baseline to first demos |
+| [040_Integration_GameWorks_Numerics.md](040_Integration_GameWorks_Numerics.md) | [040_Integration_GameWorks_Numerics.de.md](040_Integration_GameWorks_Numerics.de.md) | integration with GameWorks Lab and Numerics/Math Toolkit |
 
-- Entscheidungen knapp begründen.
-- Beispiele bevorzugen, bevor große Abstraktionen beschrieben werden.
-- Fachliche Begriffe konsistent verwenden.
-- Architekturtexte aktuell halten, sobald Code entsteht.
-- Keine Feature-Versprechen in README oder Docs aufnehmen, die nicht zumindest als Roadmap gekennzeichnet sind.
+## Documentation Rules
+
+- Keep English as the default language for public-facing files.
+- Keep German companion documents close to the English version.
+- Mark plans and roadmap items clearly as planned work.
+- Do not describe unimplemented features as already available.
+- Prefer concise examples over large abstract explanations.

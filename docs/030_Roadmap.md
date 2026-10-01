@@ -14,13 +14,13 @@ Ziel: Das Repository wirkt öffentlich verständlich und ist für Entwicklung vo
 - Architekturüberblick.
 - Feature-Katalog.
 - AGENTS.md.
-- Grundstruktur für `src/` und `tests/`.
+- Grundstruktur für `include/`, `src/` und `tests/`.
 
 ### Akzeptanzkriterien
 
 - Ein Besucher versteht in unter zwei Minuten, was das Projekt werden soll.
-- Die Abgrenzung zu GameWorks, Numerics und UI Platform ist dokumentiert.
-- Die erste technische Richtung ist erkennbar.
+- Die Abgrenzung zu GameWorks, Numerics und UI Toolkit ist dokumentiert.
+- Die erste technische Richtung ist als modernes C++/CMake-Projekt erkennbar.
 
 ## M1 – Core Geometry
 
@@ -28,19 +28,19 @@ Ziel: Fundament für alle weiteren Grafikfunktionen schaffen.
 
 ### Umfang
 
-- `Point2D`
-- `Size2D`
-- `Vector2D`
-- `Rectangle2D`
-- `LineSegment2D`
-- `Bounds2D`
+- `point2d`
+- `size2d`
+- `vector2d`
+- `rect2d`
+- `line_segment2d`
+- `bounds2d`
 - einfache mathematische Hilfsfunktionen
 
 ### Akzeptanzkriterien
 
 - Unit-Tests für alle Core-Typen.
-- keine Abhängigkeit auf UI-Frameworks.
-- XML-Kommentare für öffentliche Typen.
+- keine Abhängigkeit auf UI- oder Rendering-Frameworks.
+- öffentliche Typen und Funktionen sind dokumentiert.
 
 ## M2 – Coordinate Mapping
 
@@ -78,7 +78,7 @@ Ziel: Zeichnungen als Modell beschreiben können.
 ### Akzeptanzkriterien
 
 - eine Scene kann ohne Renderer erzeugt und geprüft werden.
-- Styles sind unabhängig von WinForms/WPF/Skia.
+- Styles sind unabhängig von Win32, Qt, GTK, Skia und Cairo.
 - erste Beispielszene mit Grid, Linie und Text.
 
 ## M4 – SVG Renderer
@@ -139,22 +139,20 @@ Ziel: einfache Visualisierung für Numerics/Math Toolkit.
 - Achsenbeschriftung ist einfach, aber brauchbar.
 - keine numerischen Fachalgorithmen im Graphics Toolkit.
 
-## M7 – WinForms Demo App
+## M7 – Native oder dateibasierte Demo
 
-Ziel: interaktive Demo und praktisches Testbett.
+Ziel: praktisches Testbett für Board, Chart und Export.
 
-### Umfang
+### Varianten
 
-- einfache Windows-Demo.
-- Vorschau für Board, Chart und Transform.
-- Export-Schaltfläche.
-- Mausposition/Hit-Testing anzeigen.
+- zunächst dateibasierte CLI-Demo, die SVG-Dateien erzeugt.
+- später optional native Demo mit Win32/Direct2D, Skia, Cairo oder Integration in SASD UI Toolkit.
 
 ### Akzeptanzkriterien
 
-- Demo startet lokal.
+- Demo kann lokal gebaut und ausgeführt werden.
 - Beispiel-SVG kann exportiert werden.
-- keine Fachlogik im UI-Projekt.
+- keine Fachlogik im Rendering- oder UI-Code.
 
 ## M8 – Stabilisierung und erste Release-Vorbereitung
 

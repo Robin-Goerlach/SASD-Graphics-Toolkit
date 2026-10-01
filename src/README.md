@@ -1,16 +1,7 @@
 # src
 
-Dieses Verzeichnis ist für die spätere C++-Implementierung vorgesehen.
+This directory is reserved for the future C++ implementation files.
 
-Vorgeschlagene Struktur:
+The core implementation should stay independent of concrete UI frameworks. Renderer-specific code should live in clearly separated modules.
 
-```text
-src/
-├── core/
-├── rendering_svg/
-├── boards/
-├── charts/
-└── demo/
-```
-
-Der produktive Core sollte unabhängig von konkreten UI- und Rendering-Frameworks bleiben. Renderer und Demos werden in eigenen Modulen ergänzt.
+German companion: [README.de.md](README.de.md).

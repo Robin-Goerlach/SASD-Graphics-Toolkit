@@ -1,121 +1,85 @@
 # SASD Graphics Toolkit
 
 [![CMake](https://github.com/Robin-Goerlach/SASD-Graphics-Toolkit/actions/workflows/cmake.yml/badge.svg)](https://github.com/Robin-Goerlach/SASD-Graphics-Toolkit/actions/workflows/cmake.yml)
-![Status](https://img.shields.io/badge/status-concept%20baseline-blue)
-![Language](https://img.shields.io/badge/language-C%2B%2B20-informational)
+![Status](https://img.shields.io/badge/status-multilanguage%20foundation-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-> Modern C++ graphics, visualization, and drawing foundation for SASD projects.
+A reusable 2D graphics and visualization foundation for SASD projects.
+**English is the default. [Deutsch](README.de.md).**
 
-**Language:** English is the default documentation language. A German version is available in [README.de.md](README.de.md).
+![Concept preview — not an application screenshot](assets/screenshots/sasd-graphics-toolkit-preview.svg)
 
-![SASD Graphics Toolkit Preview](assets/screenshots/sasd-graphics-toolkit-preview.svg)
+## Scope
+Scenes, styles, visual coordinates, renderer adapters, boards/grids and small charts.
+SVG is the first planned renderer. Game rules/AI, numerical algorithms and UI-framework
+core logic remain in their own projects. The core stays UI-framework independent.
 
-## Vision
+## Two independent language dimensions
+C++20/CMake is the first implementation direction. C#/.NET is a planned peer,
+not an obligatory C++ wrapper. Later platform trees are additive.
+English/German documentation is independent from implementation language.
+Shared behavior lives in `spec/`; APIs remain idiomatic to each platform.
+The layout follows [SASD Math Toolkit](https://github.com/Robin-Goerlach/SASD-Math-Toolkit).
 
-**SASD Graphics Toolkit** is intended to become a small, clean, and extensible C++20 library for reusable 2D graphics building blocks. It is not planned as a full game engine, a complete GUI framework, or a replacement for Qt, GTK, wxWidgets, Skia, or Cairo.
-
-The toolkit should provide the graphics foundation for several SASD projects:
-
-- **SASD GameWorks Lab:** board rendering, card layouts, search-tree views, move-analysis diagrams, score timelines.
-- **SASD Numerics / Math Toolkit:** function plots, axes, grids, diagrams, and numerical visualization.
-- **SASD UI Toolkit / UI Platform:** reusable drawing models, geometry, themes, grids, and later renderer adapters.
-- **Learning and research projects:** compact examples for geometry, transformations, rendering, and algorithmic visualization.
-
-## Core Idea
-
-The project separates the following concerns:
-
-```text
-Graphics model      -> what should be drawn?
-Layout/coordinates  -> where and at which scale?
-Renderer backend    -> how is it emitted or displayed?
-Application logic   -> why is it drawn?
-```
-
-This should make it possible to render the same conceptual scene to different targets later, for example SVG, bitmap images, Win32/GDI+, Direct2D, Skia, Cairo, HTML Canvas, or an experimental terminal-oriented backend.
-
-## Planned Feature Areas
-
-| Area | Planned scope |
+## Repository layout
+| Path | Purpose |
 |---|---|
-| **Core Geometry** | points, vectors, sizes, rectangles, bounds, lines, circles, polygons |
-| **Coordinate Mapping** | world coordinates, device coordinates, viewports, transforms |
-| **Scene Model** | scenes, layers, shapes, text, styles, stable IDs |
-| **Rendering** | SVG first, bitmap and native backends later |
-| **Boards & Grids** | Go-Moku board, chess board, generic grids, hit testing |
-| **Charts** | axes, polylines, scatter plots, simple legends |
-| **Demos** | small examples instead of one large demo monolith |
-| **Tests** | geometry, mapping, scene modeling, SVG output, board mapping |
+| `src/cpp/` | first C++20 implementation scaffold |
+| `src/dotnet/` | planned C#/.NET peer implementation |
+| `tests/cpp/`, `tests/dotnet/` | platform-specific tests |
+| `samples/cpp/`, `samples/dotnet/` | platform-specific examples |
+| `spec/` | shared contracts and reference data |
+| `docs/en/`, `docs/de/` | human-language documentation |
+| `resources/i18n/` | future localized message catalogs |
+| `assets/` | shared images and media |
 
-## Project Boundaries
+Public C++ headers will live in `src/cpp/include/sasd/graphics/`.
+Root `include/` and former numbered documentation paths retain migration pointers.
+There are no translated copies of library source code.
 
-The toolkit should not contain game rules, chess logic, Go-Moku AI, Bridge bidding, or numerical algorithms. Those belong into separate projects. This repository should stay focused on visualization and rendering infrastructure.
+## Current status
+**Repository foundation only.** No graphics library, renderer, executable sample,
+.NET project or package is implemented. CMake and CTest currently configure the
+C++ scaffold and validate repository/documentation contracts.
+The four shared affine reference cases are data; no C++/.NET runner executes them yet.
+Empty English/German text catalogs do not imply working runtime localization.
+See [language support](docs/en/070_Language_Support.md).
 
-```text
-SASD.GameWorksLab        -> game rules, AI, game states
-SASD.Numerics.Core       -> mathematics, statistics, numerical methods
-SASD.Graphics.Toolkit    -> drawing models, coordinates, rendering, visualization
-SASD.UI.Toolkit          -> interaction concepts and UI widgets
-```
-
-## Repository Layout
-
-```text
-include/    public C++ headers
-src/        implementation files
-tests/      future unit and regression tests
-docs/       English documentation plus German companion documents
-assets/     screenshots, diagrams, and visual material
-```
-
-## Suggested First Demo
-
-A **Go-Moku board renderer** is the recommended first demo because it is small enough for a fast start and useful for the later GameWorks project:
-
-- 19 × 19 grid
-- stones as simple circles
-- last move marker
-- A–S / 1–19 labels
-- mapping from mouse/device position to board coordinate
-- SVG export
-
-## Documentation
-
-| English document | German companion |
-|---|---|
-| [docs/README.md](docs/README.md) | [docs/README.de.md](docs/README.de.md) |
-| [docs/000_Project_Overview.md](docs/000_Project_Overview.md) | [docs/000_Project_Overview.de.md](docs/000_Project_Overview.de.md) |
-| [docs/010_Feature_Catalog.md](docs/010_Feature_Catalog.md) | [docs/010_Feature_Catalog.de.md](docs/010_Feature_Catalog.de.md) |
-| [docs/020_Architecture.md](docs/020_Architecture.md) | [docs/020_Architecture.de.md](docs/020_Architecture.de.md) |
-| [docs/030_Roadmap.md](docs/030_Roadmap.md) | [docs/030_Roadmap.de.md](docs/030_Roadmap.de.md) |
-| [docs/040_Integration_GameWorks_Numerics.md](docs/040_Integration_GameWorks_Numerics.md) | [docs/040_Integration_GameWorks_Numerics.de.md](docs/040_Integration_GameWorks_Numerics.de.md) |
-| [docs/090_Conversation_Context.md](docs/090_Conversation_Context.md) | [docs/090_Conversation_Context.de.md](docs/090_Conversation_Context.de.md) |
-| [AGENTS.md](AGENTS.md) | [AGENTS.de.md](AGENTS.de.md) |
-| [CONTRIBUTING.md](CONTRIBUTING.md) | [CONTRIBUTING.de.md](CONTRIBUTING.de.md) |
-
-The `090_Conversation_Context*` documents preserve useful background from the broader GameWorks discussion. They are deliberately non-normative; newer architecture documents, ADRs, and implemented code take precedence.
-
-## Build Baseline
-
-The repository is prepared as a C++20/CMake project:
+## Configure, check and build
+Requirements: CMake >= 3.22, a C++20-capable compiler and Python >= 3.10 when checks are enabled.
+.NET is not required for the C++ scaffold.
 
 ```bash
-cmake -S . -B build
-cmake --build build
-ctest --test-dir build
+python3 tools/check_repository.py
+cmake -S . -B build -DSASD_GRAPHICS_BUILD_TESTS=ON
+cmake --build build --config Release
+ctest --test-dir build --output-on-failure -C Release
 ```
 
-## Status
+Windows: use `python` if your Python installation does not expose `python3`.
+Python may be omitted with `-DSASD_GRAPHICS_BUILD_TESTS=OFF`.
+There are no library/sample build targets yet.
 
-Current status: **concept baseline / repository foundation**.
+## Documentation
+- [English index](docs/en/README.md) / [Deutscher Index](docs/de/README.md)
+- [Architecture and decisions](docs/en/020_Architecture.md)
+- [Multi-language workflow](docs/en/050_Multilanguage_Development.md)
+- [Shared contracts](docs/en/060_Contracts.md)
+- [Roadmap](docs/en/030_Roadmap.md)
+- [Math/GameWorks/UI integration](docs/en/040_Integration_GameWorks_Numerics.md)
+- [Historical GameWorks discussion context](docs/en/090_Conversation_Context.md)
+- [Development rules](AGENTS.md) / [Arbeitsregeln](AGENTS.de.md)
+- [Contributing](CONTRIBUTING.md) / [Beiträge](CONTRIBUTING.de.md)
 
-The project does not yet provide a stable API or production-ready implementation.
+Math owns reusable mathematics; Graphics visualizes. A small Math geometry dependency
+is proposed, but no package or interoperability boundary has been selected.
+The Math core must stay independent of Graphics.
+Historical discussion context is non-normative; current architecture decisions take precedence.
+
+## First planned demo
+A small 19 × 19 Go-Moku board exported as SVG, with stones, last-move marker,
+labels and coordinate mapping. Game rules remain outside Graphics.
 
 ## License
-
-This repository is licensed under the **MIT License**. See [LICENSE](LICENSE). A non-authoritative German reading aid is available in [LICENSE.de.md](LICENSE.de.md); the English `LICENSE` file remains legally authoritative.
-
-## Motto
-
-> Do not just draw pixels. Draw models that can be understood, tested, and reused.
+MIT: [LICENSE](LICENSE). [German reading aid](LICENSE.de.md);
+the English LICENSE is authoritative.

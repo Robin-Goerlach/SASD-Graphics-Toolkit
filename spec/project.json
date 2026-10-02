@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "default_documentation_locale": "en",
+  "platforms": [
+    {
+      "id": "cpp",
+      "language": "C++",
+      "toolchain": "C++20 / CMake >= 3.22",
+      "kind": "peer-implementation",
+      "status": "scaffold",
+      "source": "src/cpp",
+      "tests": "tests/cpp",
+      "samples": "samples/cpp",
+      "implemented_capabilities": []
+    },
+    {
+      "id": "dotnet",
+      "language": "C#",
+      "toolchain": ".NET 10 (planned)",
+      "kind": "peer-implementation",
+      "status": "planned",
+      "source": "src/dotnet",
+      "tests": "tests/dotnet",
+      "samples": "samples/dotnet",
+      "implemented_capabilities": []
+    }
+  ],
+  "locales": [
+    {
+      "id": "en",
+      "documentation": "docs/en",
+      "catalog": "resources/i18n/en.json",
+      "runtime_status": "not-implemented"
+    },
+    {
+      "id": "de",
+      "documentation": "docs/de",
+      "catalog": "resources/i18n/de.json",
+      "runtime_status": "not-implemented"
+    }
+  ]
+}

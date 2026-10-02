@@ -94,3 +94,13 @@ lcov.info
 # OS files
 .DS_Store
 Thumbs.db
+
+# .NET platform build output
+**/bin/
+**/obj/
+*.nupkg
+*.snupkg
+
+# Python validation tooling
+__pycache__/
+*.pyc

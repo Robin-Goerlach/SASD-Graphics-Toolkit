@@ -1,33 +1,24 @@
 # Changelog
-
-All notable changes to **SASD Graphics Toolkit** will be documented here.
-
-English is the default changelog language. The German companion file is [CHANGELOG.de.md](CHANGELOG.de.md).
-
-The format loosely follows the idea of a human-readable changelog. The project does not yet have a public release.
+[Deutsch](CHANGELOG.de.md). No public release yet.
 
 ## Unreleased
-
 ### Added
-
-- Repository baseline for a C++20/CMake graphics toolkit.
-- SVG preview image in `assets/screenshots/`.
-- English default documentation.
-- German companion documentation using `.de.md` files.
-- MIT license file confirmed.
-- Initial architecture, feature catalog, roadmap, and integration notes.
-- AGENTS.md for AI-assisted development.
-- GitHub Actions CMake workflow.
+- Math-compatible C++/.NET source, test and sample trees.
+- Shared draft contracts, four affine reference vectors and platform/locale status registry.
+- English/German technical documentation roots, stable document IDs and reviewed source hashes.
+- Empty UTF-8 message catalogs; repository/link/translation/catalog checks in Python and CI.
+- Language support matrix and explicit peer-implementation decisions.
 
 ### Changed
+- CMake delegates to src/cpp, tests/cpp and samples/cpp.
+- German companion technical documents now live in docs/de rather than flat .de.md files.
+- Old numbered documentation and include paths retain migration pointers.
+- Integration guidance permits a proposed small Math geometry dependency and keeps Math core independent.
 
-- README now treats English as the default language.
-- License section now references the existing MIT license.
+### Not yet implemented
+Graphics library/API, renderers, .NET project, packages, executable examples,
+localization runtime and cross-language conformance runners.
 
-### Not Yet Implemented
-
-- Core geometry library.
-- SVG renderer implementation.
-- Board renderer.
-- Chart basics.
-- Stable public API.
+## Initial repository foundation
+C++20/CMake scaffold, bilingual overview/features/architecture/roadmap, MIT license,
+SVG concept preview and Ubuntu/Windows CI.

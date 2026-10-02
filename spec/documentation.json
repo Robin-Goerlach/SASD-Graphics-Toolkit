@@ -1,0 +1,245 @@
+{
+  "schema_version": 1,
+  "documents": [
+    {
+      "id": "GFX-DOC-OVERVIEW",
+      "source_locale": "en",
+      "source": "docs/en/000_Project_Overview.md",
+      "translations": {
+        "de": {
+          "path": "docs/de/000_Project_Overview.md",
+          "status": "reviewed",
+          "reviewed_source_sha256": "c0ab1f3f70c776a1f84a21640a75003bc4fac69c40342bbbfbae83befba9ace6"
+        }
+      }
+    },
+    {
+      "id": "GFX-DOC-FEATURES",
+      "source_locale": "en",
+      "source": "docs/en/010_Feature_Catalog.md",
+      "translations": {
+        "de": {
+          "path": "docs/de/010_Feature_Catalog.md",
+          "status": "reviewed",
+          "reviewed_source_sha256": "c9fe60254afb5e136b1bf431314f00491d46bf436968921d1f403663081b0933"
+        }
+      }
+    },
+    {
+      "id": "GFX-DOC-ARCHITECTURE",
+      "source_locale": "en",
+      "source": "docs/en/020_Architecture.md",
+      "translations": {
+        "de": {
+          "path": "docs/de/020_Architecture.md",
+          "status": "reviewed",
+          "reviewed_source_sha256": "edfc1ee01f38c1fb5bd012ae6b74044b4f52a1e893ee52d2e36a9eabff8387ee"
+        }
+      }
+    },
+    {
+      "id": "GFX-DOC-ROADMAP",
+      "source_locale": "en",
+      "source": "docs/en/030_Roadmap.md",
+      "translations": {
+        "de": {
+          "path": "docs/de/030_Roadmap.md",
+          "status": "reviewed",
+          "reviewed_source_sha256": "8046553899d15800372c9f8e27d608e35e8713acb53625c7c6b3627f20fd7291"
+        }
+      }
+    },
+    {
+      "id": "GFX-DOC-INTEGRATION",
+      "source_locale": "en",
+      "source": "docs/en/040_Integration_GameWorks_Numerics.md",
+      "translations": {
+        "de": {
+          "path": "docs/de/040_Integration_GameWorks_Numerics.md",
+          "status": "reviewed",
+          "reviewed_source_sha256": "68427e803d1ecf6857f2b18cd5536f29a17451889d7603022f31cd4bc94c31d1"
+        }
+      }
+    },
+    {
+      "id": "GFX-DOC-LANGUAGES",
+      "source_locale": "en",
+      "source": "docs/en/050_Multilanguage_Development.md",
+      "translations": {
+        "de": {
+          "path": "docs/de/050_Multilanguage_Development.md",
+          "status": "reviewed",
+          "reviewed_source_sha256": "bb725d7bc62bf800ffa90651c6e5dd8b106d24e5b2a0b71379ff8f7ee9f42c1b"
+        }
+      }
+    },
+    {
+      "id": "GFX-DOC-CONTRACTS",
+      "source_locale": "en",
+      "source": "docs/en/060_Contracts.md",
+      "translations": {
+        "de": {
+          "path": "docs/de/060_Contracts.md",
+          "status": "reviewed",
+          "reviewed_source_sha256": "fbeabb81b9a017ae62a73dd42b8d60d990909e9f7460ee2376ef1e847ee3384e"
+        }
+      }
+    },
+    {
+      "id": "GFX-DOC-SUPPORT",
+      "source_locale": "en",
+      "source": "docs/en/070_Language_Support.md",
+      "translations": {
+        "de": {
+          "path": "docs/de/070_Language_Support.md",
+          "status": "reviewed",
+          "reviewed_source_sha256": "95fd2f8c8bde70f5c0cf7974b01e0085ac0f71988f57a96abdb9f069d3cea8af"
+        }
+      }
+    },
+    {
+      "id": "GFX-DOC-INDEX",
+      "source_locale": "en",
+      "source": "docs/en/README.md",
+      "translations": {
+        "de": {
+          "path": "docs/de/README.md",
+          "status": "reviewed",
+          "reviewed_source_sha256": "f7f7b604b87fff69d73049a3fc80d0586257339d05c4531c18cd2dd373137d63"
+        }
+      }
+    },
+    {
+      "id": "GFX-ROOT-README",
+      "source_locale": "en",
+      "source": "README.md",
+      "translations": {
+        "de": {
+          "path": "README.de.md",
+          "status": "reviewed",
+          "reviewed_source_sha256": "a2cc02e11b2d3252682727a35400bf12b1dec54315e7a62571f1b2251523ed07"
+        }
+      }
+    },
+    {
+      "id": "GFX-ROOT-AGENTS",
+      "source_locale": "en",
+      "source": "AGENTS.md",
+      "translations": {
+        "de": {
+          "path": "AGENTS.de.md",
+          "status": "reviewed",
+          "reviewed_source_sha256": "df3472e4aa4ac548d528da789c124a7af6732b3bc5d360bcc2931af28f530ad6"
+        }
+      }
+    },
+    {
+      "id": "GFX-ROOT-CONTRIBUTING",
+      "source_locale": "en",
+      "source": "CONTRIBUTING.md",
+      "translations": {
+        "de": {
+          "path": "CONTRIBUTING.de.md",
+          "status": "reviewed",
+          "reviewed_source_sha256": "aa8ed02aa2ff28dc3d7932681c47eb3a2414b1961a985b76a0791ebdec3b23a3"
+        }
+      }
+    },
+    {
+      "id": "GFX-ROOT-CHANGELOG",
+      "source_locale": "en",
+      "source": "CHANGELOG.md",
+      "translations": {
+        "de": {
+          "path": "CHANGELOG.de.md",
+          "status": "reviewed",
+          "reviewed_source_sha256": "0e2bca1013ee743a17dd2a13c67b0a96a33740203a9b49e7d9c67a7f41aa1c98"
+        }
+      }
+    },
+    {
+      "id": "GFX-INDEX-DOCS",
+      "source_locale": "en",
+      "source": "docs/README.md",
+      "translations": {
+        "de": {
+          "path": "docs/README.de.md",
+          "status": "reviewed",
+          "reviewed_source_sha256": "098da87de732424d84322840f7a43901abf24f7fb7476509feeee9a62426570d"
+        }
+      }
+    },
+    {
+      "id": "GFX-INDEX-INCLUDE",
+      "source_locale": "en",
+      "source": "include/README.md",
+      "translations": {
+        "de": {
+          "path": "include/README.de.md",
+          "status": "reviewed",
+          "reviewed_source_sha256": "b80656c254bb04bfb152c664c5ba30f4c4f044ad1e0608ac636d1e9b1b9139e4"
+        }
+      }
+    },
+    {
+      "id": "GFX-INDEX-SRC",
+      "source_locale": "en",
+      "source": "src/README.md",
+      "translations": {
+        "de": {
+          "path": "src/README.de.md",
+          "status": "reviewed",
+          "reviewed_source_sha256": "df875ab91d4e49dbb1d63f3589cad1eb871d0b874e8819dac9ea5faa9fdea671"
+        }
+      }
+    },
+    {
+      "id": "GFX-INDEX-TESTS",
+      "source_locale": "en",
+      "source": "tests/README.md",
+      "translations": {
+        "de": {
+          "path": "tests/README.de.md",
+          "status": "reviewed",
+          "reviewed_source_sha256": "1011e63c931537f15d5fc8ebffd9db7e484912ba48e49645588198e450958f0f"
+        }
+      }
+    },
+    {
+      "id": "GFX-INDEX-SAMPLES",
+      "source_locale": "en",
+      "source": "samples/README.md",
+      "translations": {
+        "de": {
+          "path": "samples/README.de.md",
+          "status": "reviewed",
+          "reviewed_source_sha256": "6aae43bb98992cc2c7ea8af02521a71db8c05019fbc79eefb12747619f68d180"
+        }
+      }
+    },
+    {
+      "id": "GFX-INDEX-RESOURCES-I18N",
+      "source_locale": "en",
+      "source": "resources/i18n/README.md",
+      "translations": {
+        "de": {
+          "path": "resources/i18n/README.de.md",
+          "status": "reviewed",
+          "reviewed_source_sha256": "32c7a05f714dbabc8aa8c56d3a57e883ee9891b21db5301b7112d78885bf1923"
+        }
+      }
+    },
+    {
+      "id": "GFX-DOC-CONTEXT",
+      "source_locale": "en",
+      "source": "docs/en/090_Conversation_Context.md",
+      "translations": {
+        "de": {
+          "path": "docs/de/090_Conversation_Context.md",
+          "status": "reviewed",
+          "reviewed_source_sha256": "342fc64d0b8357ced7ad1a390f192af3ac21681d4642e015ed3e34440f31d168"
+        }
+      }
+    }
+  ]
+}

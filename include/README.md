@@ -1,18 +1,5 @@
-# include
+# Header location changed
 
-This directory is reserved for the public C++ headers of the future toolkit.
-
-Planned namespace layout:
-
-```text
-include/sasd/graphics/
-    geometry/
-    coordinates/
-    style/
-    scene/
-    rendering/
-    boards/
-    charts/
-```
-
-German companion: [README.de.md](README.de.md).
+Future public C++ headers belong in [src/cpp/include](../src/cpp/include/README.md).
+This directory is a migration pointer, not a second include root.
+[Deutsch](README.de.md).

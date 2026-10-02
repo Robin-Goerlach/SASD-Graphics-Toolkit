@@ -1,7 +1,6 @@
-# src
+# Implementierungsquellen
 
-Dieses Verzeichnis ist für die zukünftigen C++-Implementierungsdateien vorgesehen.
+[English](README.md).
 
-Die Core-Implementierung soll unabhängig von konkreten UI-Frameworks bleiben. Renderer-spezifischer Code soll in klar getrennten Modulen liegen.
-
-Englische Standarddatei: [README.md](README.md).
+Plattformbäume: [cpp](cpp/README.md), [dotnet](dotnet/README.md).
+[Math-kompatible Sprachkonventionen](../docs/de/050_Multilanguage_Development.md) beachten.

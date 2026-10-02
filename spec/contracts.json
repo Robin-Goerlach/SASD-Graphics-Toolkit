@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "status": "draft",
+  "contracts": [
+    {
+      "id": "GFX-COORD-001",
+      "area": "coordinates",
+      "requirement": "Affine mapping: [a,b,c,d,tx,ty] gives x'=a*x+c*y+tx; y'=b*x+d*y+ty. Reference inputs/outputs are finite; each case defines absolute and relative tolerances."
+    },
+    {
+      "id": "GFX-SVG-001",
+      "area": "svg",
+      "requirement": "Serialize finite technical SVG numbers with invariant decimal points; localized visible labels are separate."
+    },
+    {
+      "id": "GFX-TEXT-001",
+      "area": "text",
+      "requirement": "Preserve Unicode user text and XML-escape it for the correct SVG text/attribute context."
+    },
+    {
+      "id": "GFX-DEP-001",
+      "area": "dependencies",
+      "requirement": "Graphics core is UI/game independent. Math core does not depend on Graphics; concrete Math integration remains proposed ADR-GFX-003."
+    }
+  ]
+}

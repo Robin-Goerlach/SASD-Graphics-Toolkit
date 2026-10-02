@@ -1,18 +1,5 @@
-# include
+# Header-Pfad geändert
 
-Dieses Verzeichnis ist für die öffentlichen C++-Header des späteren Toolkits vorgesehen.
-
-Geplantes Namespace-Layout:
-
-```text
-include/sasd/graphics/
-    geometry/
-    coordinates/
-    style/
-    scene/
-    rendering/
-    boards/
-    charts/
-```
-
-Englische Standarddatei: [README.md](README.md).
+Künftige öffentliche C++-Header gehören nach [src/cpp/include](../src/cpp/include/README.md).
+Dieser Ordner ist ein Migrationshinweis, kein zweiter Include-Pfad.
+[English](README.md).

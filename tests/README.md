@@ -1,14 +1,6 @@
-# tests
+# Verification
 
-This directory is reserved for future tests.
+[Deutsch](README.de.md).
 
-Planned test areas:
-
-- geometry primitives,
-- coordinate mapping,
-- scene modeling,
-- SVG export,
-- board and grid mapping,
-- chart scaling.
-
-German companion: [README.de.md](README.de.md).
+Platform trees: [cpp](cpp/README.md), [dotnet](dotnet/README.md).
+Follow [Math-compatible language conventions](../docs/en/050_Multilanguage_Development.md).

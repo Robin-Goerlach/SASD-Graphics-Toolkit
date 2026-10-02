@@ -1,0 +1,8 @@
+# Stable documentation/resource line endings across platform checkouts.
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary
+*.zip binary

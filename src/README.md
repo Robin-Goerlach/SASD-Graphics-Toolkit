@@ -1,7 +1,6 @@
-# src
+# Implementation sources
 
-This directory is reserved for the future C++ implementation files.
+[Deutsch](README.de.md).
 
-The core implementation should stay independent of concrete UI frameworks. Renderer-specific code should live in clearly separated modules.
-
-German companion: [README.de.md](README.de.md).
+Platform trees: [cpp](cpp/README.md), [dotnet](dotnet/README.md).
+Follow [Math-compatible language conventions](../docs/en/050_Multilanguage_Development.md).

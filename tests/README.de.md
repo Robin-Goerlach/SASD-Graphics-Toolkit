@@ -1,14 +1,6 @@
-# tests
+# Prüfungen
 
-Dieses Verzeichnis ist für zukünftige Tests vorgesehen.
+[English](README.md).
 
-Geplante Testbereiche:
-
-- Geometrieprimitive,
-- Koordinaten-Mapping,
-- Szenenmodellierung,
-- SVG-Export,
-- Board- und Grid-Mapping,
-- Chart-Skalierung.
-
-Englische Standarddatei: [README.md](README.md).
+Plattformbäume: [cpp](cpp/README.md), [dotnet](dotnet/README.md).
+[Math-kompatible Sprachkonventionen](../docs/de/050_Multilanguage_Development.md) beachten.

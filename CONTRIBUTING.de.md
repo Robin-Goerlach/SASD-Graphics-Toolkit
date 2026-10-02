@@ -1,49 +1,25 @@
-# Mitwirken
+# Beiträge
+[English](CONTRIBUTING.md).
 
-Danke für dein Interesse am **SASD Graphics Toolkit**.
+Änderungen klein, dokumentiert und an echten Verbrauchern ausrichten.
+[AGENTS.md](AGENTS.md), [Architektur](docs/de/020_Architecture.md)
+und [mehrsprachigen Ablauf](docs/de/050_Multilanguage_Development.md) beachten.
+`src/<plattform>/`, `tests/<plattform>/`, `samples/<plattform>/` verwenden.
+Gemeinsame Verträge gehören in `spec/`; Laufzeittexte in `resources/i18n/`.
+Englisch ist Standard; deutsche Zuordnung und geprüften Quellhash aktualisieren.
+Fähigkeiten ehrlich ausweisen; vorbereitete Ordner sind keine Implementierungen.
 
-Englisch ist die Standardsprache der Dokumentation. Die englische Standarddatei ist [CONTRIBUTING.md](CONTRIBUTING.md).
+Der Core umfasst Szenen/Stile/Rendering/visuelle Koordinaten und Boards/Diagramme.
+Spielregeln, KI, numerische Algorithmen und UI-Framework-Logik bleiben außerhalb.
+Vor allgemeinen mathematischen Grundtypen Math-Zuständigkeit klären.
 
-## Aktueller Status
-
-Das Projekt befindet sich in der Repository-Baseline- und Konzeptphase. Beiträge sollten sich deshalb auf Klarheit, Struktur, kleine Core-Bausteine und Tests konzentrieren.
-
-## Bevorzugter Beitragsstil
-
-- Änderungen klein und nachvollziehbar halten.
-- Dokumentation zusammen mit Code-Änderungen aktualisieren.
-- Keine großen Abstraktionen ohne konkrete Demo oder Testfall ergänzen.
-- Den Core unabhängig von UI-Frameworks halten.
-- Deterministische Tests bevorzugen.
-
-## Scope-Regeln
-
-Passende Beiträge:
-
-- Core-Geometrietypen,
-- Koordinaten-Mapping,
-- Primitive für das Scene Model,
-- SVG-Export,
-- Board-/Grid-Helfer,
-- einfache Chart-Grundlagen,
-- Tests und Dokumentation.
-
-Nicht im Scope:
-
-- Spielregeln,
-- Spiel-KI,
-- numerische Algorithmen,
-- große UI-Frameworks,
-- fremde Anwendungslogik.
-
-## Build
-
+Ausführen:
 ```bash
+python3 tools/check_repository.py
 cmake -S . -B build
-cmake --build build
-ctest --test-dir build
+cmake --build build --config Release
+ctest --test-dir build --output-on-failure -C Release
 ```
-
-## Dokumentationssprache
-
-Öffentliche Standarddateien sollen Englisch sein. Deutsche Begleitdateien verwenden die Endung `.de.md` und sollen fachlich nahe an der englischen Version bleiben.
+Voraussetzungen: CMake >= 3.22, C++20-fähiger Compiler, Python >= 3.10.
+Unter Windows ggf. `python` verwenden. CTest prüft derzeit Repository-Konsistenz;
+mit neuem Code aussagekräftige Implementierungstests ergänzen.

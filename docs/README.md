@@ -1,25 +1,7 @@
 # Documentation
 
-This directory contains the main project documentation for **SASD Graphics Toolkit**.
+[English](en/README.md) · [Deutsch](de/README.md).
 
-English is the default documentation language. German companion documents use the `.de.md` suffix.
+Technical documentation lives in locale directories. Historical numbered paths remain redirects. Root companion: [README.de.md](README.de.md).
 
-## Documents
-
-| English default | German companion | Purpose |
-|---|---|---|
-| [000_Project_Overview.md](000_Project_Overview.md) | [000_Project_Overview.de.md](000_Project_Overview.de.md) | project idea, target users, boundaries, value |
-| [010_Feature_Catalog.md](010_Feature_Catalog.md) | [010_Feature_Catalog.de.md](010_Feature_Catalog.de.md) | planned feature areas and priorities |
-| [020_Architecture.md](020_Architecture.md) | [020_Architecture.de.md](020_Architecture.de.md) | architecture, layers, render backends, central models |
-| [030_Roadmap.md](030_Roadmap.md) | [030_Roadmap.de.md](030_Roadmap.de.md) | milestone order from baseline to first demos |
-| [040_Integration_GameWorks_Numerics.md](040_Integration_GameWorks_Numerics.md) | [040_Integration_GameWorks_Numerics.de.md](040_Integration_GameWorks_Numerics.de.md) | integration with GameWorks Lab and Numerics/Math Toolkit |
-| [090_Conversation_Context.md](090_Conversation_Context.md) | [090_Conversation_Context.de.md](090_Conversation_Context.de.md) | non-normative context extracted from the broader GameWorks discussion: decisions, boundaries, references, visual direction, and superseded ideas |
-
-## Documentation Rules
-
-- Keep English as the default language for public-facing files.
-- Keep German companion documents close to the English version.
-- Mark plans and roadmap items clearly as planned work.
-- Do not describe unimplemented features as already available.
-- Prefer concise examples over large abstract explanations.
-- Treat `090_Conversation_Context*` as background material rather than a normative specification; newer architecture documents, ADRs, and implemented code take precedence.
+Historical discussion context is non-normative; current architecture decisions take precedence.

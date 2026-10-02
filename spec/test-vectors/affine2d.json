@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "contract_id": "GFX-COORD-001",
+  "status": "reference-data-only",
+  "abs_tolerance": 1e-12,
+  "rel_tolerance": 1e-12,
+  "cases": [
+    {
+      "id": "identity",
+      "matrix": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "point": [
+        2,
+        -3
+      ],
+      "expected": [
+        2,
+        -3
+      ]
+    },
+    {
+      "id": "translation",
+      "matrix": [
+        1,
+        0,
+        0,
+        1,
+        5,
+        -2
+      ],
+      "point": [
+        2,
+        3
+      ],
+      "expected": [
+        7,
+        1
+      ]
+    },
+    {
+      "id": "scale-and-y-inversion",
+      "matrix": [
+        2,
+        0,
+        0,
+        -3,
+        0,
+        0
+      ],
+      "point": [
+        1.5,
+        2
+      ],
+      "expected": [
+        3,
+        -6
+      ]
+    },
+    {
+      "id": "shear-and-translation",
+      "matrix": [
+        1,
+        0,
+        2,
+        1,
+        -1,
+        4
+      ],
+      "point": [
+        2,
+        3
+      ],
+      "expected": [
+        7,
+        7
+      ]
+    }
+  ]
+}

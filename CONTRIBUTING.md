@@ -1,49 +1,25 @@
 # Contributing
+[Deutsch](CONTRIBUTING.de.md).
 
-Thank you for your interest in **SASD Graphics Toolkit**.
+Keep changes small, documented and driven by actual consumers.
+Follow [AGENTS.md](AGENTS.md), the [architecture](docs/en/020_Architecture.md)
+and the [multi-language workflow](docs/en/050_Multilanguage_Development.md).
+Use `src/<platform>/`, `tests/<platform>/`, `samples/<platform>/`.
+Shared contracts belong in `spec/`; runtime text catalogs in `resources/i18n/`.
+English is default; update the mapped German document and its reviewed source hash.
+Record supported capabilities honestly; prepared directories are not implementations.
 
-English is the default documentation language. The German companion file is [CONTRIBUTING.de.md](CONTRIBUTING.de.md).
+The core covers scene/style/rendering/visual coordinates and boards/charts.
+Keep game rules, AI, numerical algorithms and UI-framework logic outside Graphics.
+Resolve Math ownership before adding generic math primitives.
 
-## Current Status
-
-The project is in the repository-baseline and concept phase. Contributions should therefore focus on clarity, structure, small core building blocks, and tests.
-
-## Preferred Contribution Style
-
-- Keep changes small and understandable.
-- Update documentation together with code changes.
-- Do not add broad abstractions without a concrete demo or test case.
-- Keep the core independent of UI frameworks.
-- Prefer deterministic tests.
-
-## Scope Rules
-
-Suitable contributions:
-
-- core geometry types,
-- coordinate mapping,
-- scene model primitives,
-- SVG export,
-- board/grid helpers,
-- simple chart foundations,
-- tests and documentation.
-
-Out of scope:
-
-- game rules,
-- game AI,
-- numerical algorithms,
-- large UI frameworks,
-- unrelated application logic.
-
-## Build
-
+Run:
 ```bash
+python3 tools/check_repository.py
 cmake -S . -B build
-cmake --build build
-ctest --test-dir build
+cmake --build build --config Release
+ctest --test-dir build --output-on-failure -C Release
 ```
-
-## Documentation Language
-
-Public default files should be English. German companion files should use the `.de.md` suffix and should stay close to the English version.
+Requirements: CMake >= 3.22, C++20-capable compiler, Python >= 3.10.
+On Windows use `python` if needed. Current CTest validates repository consistency;
+add meaningful implementation tests when adding code.

@@ -7,7 +7,7 @@
 Wiederverwendbarer 2D-Grafik- und Visualisierungs-Unterbau für SASD-Projekte.
 **Englisch ist die Standardsprache. [English](README.md).**
 
-![Konzeptvorschau — kein Screenshot einer fertigen Anwendung](assets/screenshots/SASD Graphics Toolkit Interface.png)
+![Konzeptvorschau — kein Screenshot einer fertigen Anwendung](assets/screenshots/SASD-Graphics-Toolkit-Interface.png)
 
 ## Umfang
 Szenen, Stile, visuelle Koordinaten, Renderer-Adapter, Boards/Grids und kleine Diagramme.

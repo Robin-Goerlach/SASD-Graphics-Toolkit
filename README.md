@@ -7,7 +7,7 @@
 A reusable 2D graphics and visualization foundation for SASD projects.
 **English is the default. [Deutsch](README.de.md).**
 
-![Concept preview — not an application screenshot](assets/screenshots/SASD Graphics Toolkit Interface.png)
+![Concept preview — not an application screenshot](assets/screenshots/SASD-Graphics-Toolkit-Interface.png)
 
 ## Scope
 Scenes, styles, visual coordinates, renderer adapters, boards/grids and small charts.

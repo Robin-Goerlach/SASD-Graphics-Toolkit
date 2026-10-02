@@ -13,6 +13,7 @@ Englisch ist die Standardsprache der Dokumentation. Deutsche Begleitdokumente ve
 | [020_Architecture.md](020_Architecture.md) | [020_Architecture.de.md](020_Architecture.de.md) | Architektur, Layer, Renderer-Backends, zentrale Modelle |
 | [030_Roadmap.md](030_Roadmap.md) | [030_Roadmap.de.md](030_Roadmap.de.md) | Meilensteinreihenfolge von Baseline bis erste Demos |
 | [040_Integration_GameWorks_Numerics.md](040_Integration_GameWorks_Numerics.md) | [040_Integration_GameWorks_Numerics.de.md](040_Integration_GameWorks_Numerics.de.md) | Zusammenspiel mit GameWorks Lab und Numerics/Math Toolkit |
+| [090_Conversation_Context.md](090_Conversation_Context.md) | [090_Conversation_Context.de.md](090_Conversation_Context.de.md) | nicht-normativer Kontext aus der breiteren GameWorks-Diskussion: Entscheidungen, Abgrenzungen, Referenzen, visuelle Richtung und überholte Explorationsideen |
 
 ## Dokumentationsregeln
 
@@ -21,3 +22,4 @@ Englisch ist die Standardsprache der Dokumentation. Deutsche Begleitdokumente ve
 - Pläne und Roadmap-Punkte müssen klar als geplante Arbeit gekennzeichnet sein.
 - Noch nicht implementierte Funktionen dürfen nicht als vorhanden beschrieben werden.
 - Kurze Beispiele sind besser als große abstrakte Beschreibungen.
+- `090_Conversation_Context*` dient als Hintergrundmaterial und nicht als normative Spezifikation; neuere Architekturtexte, ADRs und implementierter Code haben Vorrang.

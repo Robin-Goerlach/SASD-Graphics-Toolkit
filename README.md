@@ -90,8 +90,11 @@ A **Go-Moku board renderer** is the recommended first demo because it is small e
 | [docs/020_Architecture.md](docs/020_Architecture.md) | [docs/020_Architecture.de.md](docs/020_Architecture.de.md) |
 | [docs/030_Roadmap.md](docs/030_Roadmap.md) | [docs/030_Roadmap.de.md](docs/030_Roadmap.de.md) |
 | [docs/040_Integration_GameWorks_Numerics.md](docs/040_Integration_GameWorks_Numerics.md) | [docs/040_Integration_GameWorks_Numerics.de.md](docs/040_Integration_GameWorks_Numerics.de.md) |
+| [docs/090_Conversation_Context.md](docs/090_Conversation_Context.md) | [docs/090_Conversation_Context.de.md](docs/090_Conversation_Context.de.md) |
 | [AGENTS.md](AGENTS.md) | [AGENTS.de.md](AGENTS.de.md) |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | [CONTRIBUTING.de.md](CONTRIBUTING.de.md) |
+
+The `090_Conversation_Context*` documents preserve useful background from the broader GameWorks discussion. They are deliberately non-normative; newer architecture documents, ADRs, and implemented code take precedence.
 
 ## Build Baseline
 

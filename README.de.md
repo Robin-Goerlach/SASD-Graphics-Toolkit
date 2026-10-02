@@ -90,8 +90,11 @@ Als erste Demo eignet sich ein **Go-Moku-Brett-Renderer**:
 | [docs/020_Architecture.md](docs/020_Architecture.md) | [docs/020_Architecture.de.md](docs/020_Architecture.de.md) |
 | [docs/030_Roadmap.md](docs/030_Roadmap.md) | [docs/030_Roadmap.de.md](docs/030_Roadmap.de.md) |
 | [docs/040_Integration_GameWorks_Numerics.md](docs/040_Integration_GameWorks_Numerics.md) | [docs/040_Integration_GameWorks_Numerics.de.md](docs/040_Integration_GameWorks_Numerics.de.md) |
+| [docs/090_Conversation_Context.md](docs/090_Conversation_Context.md) | [docs/090_Conversation_Context.de.md](docs/090_Conversation_Context.de.md) |
 | [AGENTS.md](AGENTS.md) | [AGENTS.de.md](AGENTS.de.md) |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | [CONTRIBUTING.de.md](CONTRIBUTING.de.md) |
+
+Die Dateien `090_Conversation_Context*` bewahren nützlichen Hintergrund aus der breiteren GameWorks-Diskussion. Sie sind bewusst nicht normativ; neuere Architekturtexte, ADRs und implementierter Code haben Vorrang.
 
 ## Build-Basis
 

@@ -13,6 +13,7 @@ English is the default documentation language. German companion documents use th
 | [020_Architecture.md](020_Architecture.md) | [020_Architecture.de.md](020_Architecture.de.md) | architecture, layers, render backends, central models |
 | [030_Roadmap.md](030_Roadmap.md) | [030_Roadmap.de.md](030_Roadmap.de.md) | milestone order from baseline to first demos |
 | [040_Integration_GameWorks_Numerics.md](040_Integration_GameWorks_Numerics.md) | [040_Integration_GameWorks_Numerics.de.md](040_Integration_GameWorks_Numerics.de.md) | integration with GameWorks Lab and Numerics/Math Toolkit |
+| [090_Conversation_Context.md](090_Conversation_Context.md) | [090_Conversation_Context.de.md](090_Conversation_Context.de.md) | non-normative context extracted from the broader GameWorks discussion: decisions, boundaries, references, visual direction, and superseded ideas |
 
 ## Documentation Rules
 
@@ -21,3 +22,4 @@ English is the default documentation language. German companion documents use th
 - Mark plans and roadmap items clearly as planned work.
 - Do not describe unimplemented features as already available.
 - Prefer concise examples over large abstract explanations.
+- Treat `090_Conversation_Context*` as background material rather than a normative specification; newer architecture documents, ADRs, and implemented code take precedence.
